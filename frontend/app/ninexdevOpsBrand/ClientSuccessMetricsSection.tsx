@@ -3,52 +3,24 @@
 import React from "react";
 import {
   ArrowRight,
-  Cloud,
-  Shield,
-  Infinity,
 } from "lucide-react";
 
-const metricGroups = [
-  {
-    icon: <Cloud size={22} strokeWidth={1.5} />,
-    title: "Infrastructure Performance",
-    items: [
-      ["99.99%", "average uptime for managed infrastructure"],
-      ["40%", "average cost reduction vs. legacy systems"],
-      ["10X", "improvement in deployment speed"],
-      ["70%", "reduction in infrastructure incidents"],
-    ],
-    footerTitle: "HIGH AVAILABILITY",
-    footerText: "SCALABLE. RELIABLE.",
-    showArrow: true,
-  },
-  {
-    icon: <Shield size={22} strokeWidth={1.5} />,
-    title: "Security Posture",
-    items: [
-      ["0", "breaches for managed clients (5+ years)"],
-      ["95%", "threat prevention rate"],
-      ["99%", "vulnerability remediation within SLA"],
-      ["100%", "compliance with regulatory requirements"],
-    ],
-    footerTitle: "ZERO TRUST",
-    footerText: "SECURE. COMPLIANT.",
-    showArrow: false,
-  },
-  {
-    icon: <Infinity size={22} strokeWidth={1.5} />,
-    title: "Development Velocity",
-    items: [
-      ["80%", "faster software deployment cycles"],
-      ["60%", "reduction in production incidents"],
-      ["50%", "improvement in developer productivity"],
-      ["90%", "automation of repetitive tasks"],
-    ],
-    showArrow: false,
-  },
-];
+interface MetricGroup {
+  icon: React.ReactNode;
+  title: string;
+  items: string[][];
+  footerTitle?: string;
+  footerText?: string;
+  showArrow?: boolean;
+}
 
-export default function ClientSuccessMetricsSection() {
+interface ClientSuccessMetricsSectionProps {
+  metricGroups: MetricGroup[];
+}
+
+export default function ClientSuccessMetricsSection({
+  metricGroups,
+}: ClientSuccessMetricsSectionProps) {
   return (
     <section className="w-full overflow-x-hidden bg-[#f6f4f8] py-3">
       <div className="mx-auto w-full max-w-full px-3 lg:px-0 mt-20 mb-20">

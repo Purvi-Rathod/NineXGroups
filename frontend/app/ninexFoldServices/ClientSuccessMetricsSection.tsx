@@ -3,52 +3,24 @@
 import React from "react";
 import {
   ArrowRight,
-  BarChart3,
-  SlidersHorizontal,
-  User,
 } from "lucide-react";
 
-const metricGroups = [
-  {
-    icon: <BarChart3 size={22} strokeWidth={1.5} />,
-    title: "Revenue Impact",
-    items: [
-      ["85%", "average revenue increase within 12 months"],
-      ["45%", "improvement in forecast accuracy"],
-      ["60%", "faster sales cycles"],
-      ["40%", "increase in average deal size"],
-    ],
-    footerTitle: "OUTCOME DRIVEN",
-    footerText: "MEASURABLE. IMPACTFUL.",
-    showArrow: true,
-  },
-  {
-    icon: <SlidersHorizontal size={22} strokeWidth={1.5} />,
-    title: "Operational Efficiency",
-    items: [
-      ["70%", "reduction in manual data entry"],
-      ["60%", "faster reporting and analytics"],
-      ["50%", "reduction in system maintenance costs"],
-      ["40%", "improvement in data quality"],
-    ],
-    footerTitle: "BUILT FOR EFFICIENCY",
-    footerText: "STREAMLINED. SCALABLE.",
-    showArrow: false,
-  },
-  {
-    icon: <User size={22} strokeWidth={1.5} />,
-    title: "User Adoption",
-    items: [
-      ["95%", "user adoption within 90 days"],
-      ["4.5/5", "average user satisfaction score"],
-      ["80%", "reduction in support tickets"],
-      ["90%", "process compliance"],
-    ],
-    showArrow: false,
-  },
-];
+interface MetricGroup {
+  icon: React.ReactNode;
+  title: string;
+  items: string[][];
+  footerTitle?: string;
+  footerText?: string;
+  showArrow?: boolean;
+}
 
-export default function ClientSuccessMetricsSection() {
+interface ClientSuccessMetricsSectionProps {
+  metricGroups: MetricGroup[];
+}
+
+export default function ClientSuccessMetricsSection({
+  metricGroups,
+}: ClientSuccessMetricsSectionProps) {
   return (
     <section className="w-full overflow-x-hidden bg-[#f2f1ef] py-3">
       <div className="mx-auto w-full max-w-full px-3 lg:px-0 mt-20 mb-20">
