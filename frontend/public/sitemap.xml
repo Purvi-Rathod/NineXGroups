@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>https://ninex-group.com/ninexConnectBrand</loc><lastmod>2026-05-26T10:49:29.831Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://ninex-group.com/values/future-ready</loc><lastmod>2026-05-26T10:49:29.832Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://ninex-group.com/ninexscaleBrand</loc><lastmod>2026-05-26T10:49:29.832Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://ninex-group.com/legal/contact-us</loc><lastmod>2026-05-26T10:49:29.832Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://ninex-group.com/values/purpose-led</loc><lastmod>2026-05-26T10:49:29.832Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://ninex-group.com/ninexdevOpsBrand</loc><lastmod>2026-05-26T10:49:29.832Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://ninex-group.com/legal/contact-us</loc><lastmod>2026-05-26T19:27:53.882Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://ninex-group.com/ninexConnectBrand</loc><lastmod>2026-05-26T19:27:53.883Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://ninex-group.com/ninexscaleBrand</loc><lastmod>2026-05-26T19:27:53.883Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://ninex-group.com/legal/terms-of-use</loc><lastmod>2026-05-26T19:27:53.883Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://ninex-group.com/legal/disclaimer</loc><lastmod>2026-05-26T19:27:53.883Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://ninex-group.com/values/performance-driven</loc><lastmod>2026-05-26T19:27:53.883Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://ninex-group.com/industries/automotive</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 <url><loc>https://ninex-group.com/industries/farm-equipment</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 <url><loc>https://ninex-group.com/industries/financial-services</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -15,13 +15,20 @@
 <url><loc>https://ninex-group.com/industries/real-estate</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 <url><loc>https://ninex-group.com/industries/renewable-energy</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 <url><loc>https://ninex-group.com/industries/technology-services</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-<url><loc>https://ninex-group.com/legal/disclaimer</loc><lastmod>2026-05-26T10:49:29.833Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://ninex-group.com/legal/sitemap</loc><lastmod>2026-05-26T10:49:29.833Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://ninex-group.com</loc><lastmod>2026-05-26T10:49:29.833Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://ninex-group.com/ninexFoldServices</loc><lastmod>2026-05-26T10:49:29.833Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://ninex-group.com/blogs</loc><lastmod>2026-05-26T10:49:29.833Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://ninex-group.com/legal/privacy-policy</loc><lastmod>2026-05-26T10:49:29.833Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://ninex-group.com/values/performance-driven</loc><lastmod>2026-05-26T10:49:29.833Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://ninex-group.com/values/leadership</loc><lastmod>2026-05-26T10:49:29.833Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://ninex-group.com/legal/terms-of-use</loc><lastmod>2026-05-26T10:49:29.833Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://ninex-group.com</loc><lastmod>2026-05-26T19:27:53.883Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://ninex-group.com/legal/sitemap</loc><lastmod>2026-05-26T19:27:53.883Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://ninex-group.com/ninexFoldServices/bi-data</loc><lastmod>2026-05-26T19:27:53.884Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://ninex-group.com/values/leadership</loc><lastmod>2026-05-26T19:27:53.884Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://ninex-group.com/ninexFoldServices/erp</loc><lastmod>2026-05-26T19:27:53.884Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://ninex-group.com/values/purpose-led</loc><lastmod>2026-05-26T19:27:53.884Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://ninex-group.com/ninexFoldServices</loc><lastmod>2026-05-26T19:27:53.884Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://ninex-group.com/ninexFoldServices/marketing-systems</loc><lastmod>2026-05-26T19:27:53.884Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://ninex-group.com/ninexFoldServices/revenue-architecture</loc><lastmod>2026-05-26T19:27:53.884Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://ninex-group.com/ninexdevOpsBrand/cloud-infrastructure</loc><lastmod>2026-05-26T19:27:53.884Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://ninex-group.com/ninexFoldServices/revops</loc><lastmod>2026-05-26T19:27:53.884Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://ninex-group.com/values/future-ready</loc><lastmod>2026-05-26T19:27:53.884Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://ninex-group.com/blogs</loc><lastmod>2026-05-26T19:27:53.884Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://ninex-group.com/ninexdevOpsBrand</loc><lastmod>2026-05-26T19:27:53.884Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://ninex-group.com/ninexFoldServices/revenue-systems</loc><lastmod>2026-05-26T19:27:53.884Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://ninex-group.com/legal/privacy-policy</loc><lastmod>2026-05-26T19:27:53.884Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
 </urlset>
