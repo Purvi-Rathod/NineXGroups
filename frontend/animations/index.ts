@@ -1,0 +1,22 @@
+// Export all animation variants
+export {
+  fadeUp,
+  fadeUpSpring,
+  fadeIn,
+  staggerContainer,
+  scaleIn,
+  slideLeft,
+  slideRight,
+  fadeUpSubtle,
+  float,
+  buttonHover,
+  buttonTap,
+  cardHover,
+  iconRotate,
+  ctaButtonHover,
+  ctaButtonTap,
+  viewportOnce,
+  bobUp,
+  staggerFadeUp,
+  subtleScale,
+} from "./variants";

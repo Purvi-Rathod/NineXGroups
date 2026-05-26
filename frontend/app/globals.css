@@ -1,0 +1,642 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "GT America";
+  src: local("GT America"), local("GT America Regular");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "GT America";
+  src: local("GT America Medium"), local("GT America");
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "GT America";
+  src: local("GT America SemiBold"), local("GT America");
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "GT America";
+  src: local("GT America Bold"), local("GT America");
+  font-style: normal;
+  font-weight: 700 800;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Canela";
+  src: local("Canela Italic"), local("Canela-RegularItalic"), local("Canela Regular Italic");
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+}
+
+:root {
+  /* Figma Design Colors */
+  --primary-cyan: #00B4D8;
+  --navy-dark: #0A1628;
+  --navy-footer: #0D1B2A;
+  --background-light: #F8F9FA;
+  --text-dark: #1B1B1B;
+  --text-muted: #6B7280;
+  --text-white: #FFFFFF;
+  --border-light: #E5E7EB;
+
+  /* Font stacks */
+  --font-gt-america: "GT America", Arial, sans-serif;
+  --font-canela-italic: "Canela", Georgia, serif;
+  /* Legacy aliases — all resolve to GT America */
+  --font-instrument: var(--font-gt-america);
+  --font-manrope: var(--font-gt-america);
+  --font-lato: var(--font-gt-america);
+  --font-playfair: var(--font-canela-italic);
+
+  /* Typography rhythm */
+  --heading-tight: 1.08;
+  --body-readable: 1.65;
+
+  /* Luxury letter-spacing scale */
+  --tracking-hero: -0.03em;
+  --tracking-display: -0.02em;
+  --tracking-heading: -0.01em;
+  --tracking-body: 0em;
+  --tracking-label: 0.1em;
+
+  /* Layout */
+  --section-padding-y: 80px;
+  --card-padding: 24px;
+  --grid-gap: 24px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  /* Root font lock — all `inherit` values cascade from here */
+  font-family: var(--font-gt-america);
+  overflow-x: hidden;
+  width: 100%;
+}
+
+body {
+  font-family: inherit;
+  font-weight: 400;
+  color: var(--text-dark);
+  background-color: #ffffff;
+  line-height: var(--body-readable);
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+  letter-spacing: var(--tracking-body);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body.admin-no-margin {
+  margin-top: 0 !important;
+}
+
+body,
+body * {
+  font-family: inherit !important;
+}
+
+/* Typography hierarchy: GT America everywhere by default; Canela Italic only for explicit premium/hero/highlight roles. */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-gt-america) !important;
+  font-style: normal;
+}
+
+h1 {
+  font-weight: 500;
+  line-height: 1.04;
+  letter-spacing: var(--tracking-hero);
+}
+
+h2 {
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: var(--tracking-display);
+}
+
+h3 {
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: var(--tracking-heading);
+}
+
+h4,
+h5,
+h6 {
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0;
+}
+
+/* Canela Italic roles */
+.global-heading-style,
+.leadership-heading,
+.font-playfair,
+.font-canela {
+  font-family: var(--font-canela-italic) !important;
+  font-style: italic;
+  font-weight: 400;
+  line-height: var(--heading-tight);
+}
+
+/* Allow italic tags/utility only when they also carry the explicit Canela role */
+em,
+i,
+.italic {
+  font-family: inherit !important;
+  font-style: italic;
+}
+
+/* Highlight words using existing class hook */
+[class*="font-playfair"] {
+  font-family: var(--font-canela-italic) !important;
+  font-style: italic;
+}
+
+p,
+li,
+blockquote,
+figcaption {
+  line-height: var(--body-readable);
+}
+
+p {
+  margin-bottom: 12px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 16px;
+}
+
+strong,
+b,
+.font-medium,
+.font-semibold,
+.font-bold,
+.font-extrabold {
+  font-family: var(--font-gt-america) !important;
+}
+
+/* Keep Canela scope limited to explicit classes (not generic headings). */
+.global-heading-style *,
+.leadership-heading *,
+.font-playfair *,
+.font-canela * {
+  font-family: var(--font-canela-italic) !important;
+  font-style: italic;
+  font-weight: 400;
+}
+
+button,
+a,
+nav,
+nav *,
+label,
+input,
+select,
+textarea {
+  font-family: var(--font-gt-america) !important;
+}
+
+
+nav,
+nav a,
+nav button {
+  font-weight: 500;
+}
+
+button,
+.btn,
+[role="button"] {
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+input,
+select,
+textarea {
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+section {
+  scroll-margin-top: 96px;
+}
+
+/* Gradient Button */
+.gradient-btn {
+  background: linear-gradient(98.44deg, #12D4FF 9.71%, #1959FA 90.29%);
+  transition: all 0.3s ease;
+}
+
+/* Navigation Gradient (from Figma) - for text & CTA only */
+.nav-text-gradient {
+  background: linear-gradient(96.4deg, #12D4FF 27.64%, #1959FA 73.51%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.nav-btn-gradient {
+  background: linear-gradient(96.4deg, #12D4FF 27.64%, #1959FA 73.51%);
+  transition: all 0.3s ease;
+}
+
+.nav-btn-gradient:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(18, 212, 255, 0.35);
+}
+
+.gradient-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 180, 216, 0.3);
+}
+
+/* FAQ active header gradient */
+.faq-active-bg {
+  background: linear-gradient(96.4deg, #12D4FF 27.64%, #1959FA 73.51%);
+}
+
+/* Container */
+
+@media (min-width: 640px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+}
+
+/* Image Placeholder */
+.image-placeholder {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  opacity: 0.7;
+}
+
+/* Card Shadows */
+.shadow-card {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.shadow-card:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Section Spacing */
+.section-padding {
+  padding: 4rem 0;
+}
+
+@media (min-width: 640px) {
+  .section-padding {
+    padding: 5rem 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding: var(--section-padding-y) 0;
+  }
+}
+
+/* Fade-in Animation */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.8s ease-out;
+}
+
+/* Hide scrollbar */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+@layer base {
+
+  button,
+  input,
+  select,
+  textarea {
+    @apply appearance-none bg-transparent border-0 outline-none;
+  }
+}
+
+
+
+@layer components {
+  /** Single horizontal grid for NinexFold + nav/footer: max-width + responsive padding only here */
+  .section-container {
+    @apply w-full max-w-7xl mx-auto px-6 sm:px-10 md:px-16 lg:px-20 xl:px-24;
+  }
+
+  .all-\[unset\] {
+    all: unset;
+  }
+
+  /* ─── Luxury Typography System ─────────────────────────────────── */
+
+  /* Hero — largest display, maximum tightness (GT America) */
+  .type-hero {
+    font-family: var(--font-gt-america) !important;
+    font-weight: 500;
+    font-style: normal;
+    line-height: 1.04;
+    letter-spacing: var(--tracking-hero);
+  }
+
+  /* Display — section openers, major page titles (GT America) */
+  .type-display {
+    font-family: var(--font-gt-america) !important;
+    font-weight: 500;
+    font-style: normal;
+    line-height: 1.08;
+    letter-spacing: var(--tracking-display);
+  }
+
+  /* Heading — card titles, dashboard headers (GT America) */
+  .type-heading {
+    font-family: var(--font-gt-america) !important;
+    font-weight: 600;
+    font-style: normal;
+    line-height: 1.2;
+    letter-spacing: var(--tracking-heading);
+  }
+
+  /* Subheading — subtitles, sidebar sections, form labels (GT America) */
+  .type-subheading {
+    font-family: var(--font-gt-america) !important;
+    font-weight: 500;
+    font-style: normal;
+    line-height: 1.35;
+    letter-spacing: 0;
+  }
+
+  /* Body — readable prose, UI text (GT America) */
+  .type-body {
+    font-family: var(--font-gt-america) !important;
+    font-weight: 400;
+    font-style: normal;
+    line-height: var(--body-readable);
+    letter-spacing: 0;
+  }
+
+  /* Caption — small supporting text, table cells (GT America) */
+  .type-caption {
+    font-family: var(--font-gt-america) !important;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.4;
+    letter-spacing: 0.01em;
+    font-size: 0.875rem;
+  }
+
+  /* Label — uppercase spaced institutional labels, menu categories (GT America) */
+  .type-label {
+    font-family: var(--font-gt-america) !important;
+    font-weight: 500;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    font-size: 0.75rem;
+  }
+
+  /* Accent — Canela Italic, sparingly for hero highlights, luxury words */
+  .type-accent {
+    font-family: var(--font-canela-italic) !important;
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.15;
+    letter-spacing: 0;
+  }
+
+  /* Quote — Canela Italic for testimonials, pull quotes, elegant subtitles */
+  .type-quote {
+    font-family: var(--font-canela-italic) !important;
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.5;
+    letter-spacing: 0.01em;
+  }
+
+  /* Global Heading Style */
+  .global-heading-style {
+    color: #1F1F1F;
+    text-align: center;
+    font-size: 44.397px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 108%;
+    text-transform: capitalize;
+  }
+
+  /* Leadership Page Styles */
+  .leadership-btn-primary {
+    background: linear-gradient(33deg, rgb(18, 212, 255) 0%, rgb(25, 89, 250) 100%);
+    color: white;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .leadership-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(18, 212, 255, 0.35);
+  }
+
+  .leadership-btn-secondary {
+    border: 2px solid rgb(18, 212, 255);
+    color: rgb(25, 89, 250);
+    background: transparent;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .leadership-btn-secondary:hover {
+    background: linear-gradient(33deg, rgb(18, 212, 255) 0%, rgb(25, 89, 250) 100%);
+    color: white;
+    border-color: transparent;
+  }
+
+  .leadership-circle-shape {
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #F5F1EB 0%, #E8E2D9 100%);
+  }
+
+  .leadership-section {
+    background-color: #FAF8F5;
+  }
+
+  .leadership-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    transition: all 0.4s ease;
+  }
+
+  .leadership-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+  }
+
+  .leadership-heading {
+    color: #2D2A26;
+  }
+
+  .leadership-text {
+    color: #6B6560;
+  }
+
+}
+
+:root {
+  --animate-spin: spin 1s linear infinite;
+}
+
+.animate-fade-in {
+  animation: fade-in 1s var(--animation-delay, 0s) ease forwards;
+}
+
+.animate-fade-up {
+  animation: fade-up 1s var(--animation-delay, 0s) ease forwards;
+}
+
+.animate-marquee {
+  animation: marquee var(--duration) infinite linear;
+}
+
+.animate-marquee-vertical {
+  animation: marquee-vertical var(--duration) linear infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 8s infinite;
+}
+
+.animate-spin {
+  animation: var(--animate-spin);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+@keyframes image-glow {
+  0% {
+    opacity: 0;
+    animation-timing-function: cubic-bezier(0.74, 0.25, 0.76, 1);
+  }
+
+  10% {
+    opacity: 0.7;
+    animation-timing-function: cubic-bezier(0.12, 0.01, 0.08, 0.99);
+  }
+
+  to {
+    opacity: 0.4;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes shimmer {
+
+  0%,
+  90%,
+  to {
+    background-position: calc(-100% - var(--shimmer-width)) 0;
+  }
+
+  30%,
+  60% {
+    background-position: calc(100% + var(--shimmer-width)) 0;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate(0);
+  }
+
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+  }
+}
+
+@keyframes marquee-vertical {
+  0% {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(calc(-100% - var(--gap)));
+  }
+}
