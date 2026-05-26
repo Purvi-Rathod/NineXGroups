@@ -59,9 +59,9 @@ export default function OverviewSection({
                         {/* EYEBROW */}
                         <div className="flex items-center gap-[10px] mb-[34px]">
 
-                            <div className="w-[7px] h-[7px] bg-[#ff5b2e]" />
+                            <div className="w-[7px] h-[7px] bg-[#000033]" />
 
-                            <span className="uppercase tracking-[3px] text-[11px] font-medium text-[#ff5b2e]">
+                            <span className="uppercase tracking-[3px] text-[11px] font-medium text-[#000033]">
                                 {eyebrow}
                             </span>
                         </div>
@@ -83,7 +83,7 @@ export default function OverviewSection({
                         </p>
 
                         {/* IMPLEMENT TITLE */}
-                        <h3 className="text-[#ff5b2e] text-[16px] leading-none tracking-[-0.5px] font-light mb-[14px]">
+                        <h3 className="text-[#000033] text-[16px] leading-none tracking-[-0.5px] font-bold mb-[14px]">
                             {implementationTitle}
                         </h3>
 

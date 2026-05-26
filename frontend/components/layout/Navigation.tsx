@@ -148,26 +148,26 @@ const navigationItems: NavigationItem[] = [
         children: [
           {
             label: "Cloud & Infrastructure",
-            href: "/ninexdevops/cloud-infrastructure",
+            href: "/ninexdevOpsBrand/cloud-infrastructure",
           },
           {
             label: "AI & Generative AI",
-            href: "/ninexdevops/ai-generative-ai",
+            href: "/ninexdevOpsBrand/ai-generative-ai",
           },
-          { label: "Cybersecurity", href: "/ninexdevops/cybersecurity" },
+          { label: "Cybersecurity", href: "/ninexdevOpsBrand/cybersecurity" },
           {
             label: "Digital Engineering",
-            href: "/ninexdevops/digital-engineering",
+            href: "/ninexdevOpsBrand/digital-engineering",
           },
           {
             label: "Product Engineering",
-            href: "/ninexdevops/product-engineering",
+            href: "/ninexdevOpsBrand/product-engineering",
           },
-          { label: "DevOps & CI/CD", href: "/ninexdevops/devops-cicd" },
-          { label: "Networks", href: "/ninexdevops/networks" },
+          { label: "DevOps & CI/CD", href: "/ninexdevOpsBrand/devops-cicd" },
+          { label: "Networks", href: "/ninexdevOpsBrand/networks" },
           {
             label: "Digital Workspace",
-            href: "/ninexdevops/digital-workspace",
+            href: "/ninexdevOpsBrand/digital-workspace",
           },
         ],
       },
