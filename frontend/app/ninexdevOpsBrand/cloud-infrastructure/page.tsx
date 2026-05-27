@@ -4,7 +4,7 @@ import ClientSuccessMetricsSection from "../ClientSuccessMetricsSection";
 import {
   ServerCrash,
   CloudCog,
-  Rocket,
+  GaugeCircle,
 } from "lucide-react";
 
 const metricGroups = [
@@ -12,13 +12,13 @@ const metricGroups = [
     icon: <ServerCrash size={22} strokeWidth={1.5} />,
     title: "Challenge",
     items: [
-      ["2,500+", "on-premises servers across 50 data centers"],
+      ["2,500+", "on-premises servers across data centers"],
       ["$120M", "annual infrastructure operating costs"],
-      ["6M", "infrastructure provisioning lead times"],
+      ["6M", "infrastructure provisioning lead time"],
       ["45%", "average server utilization efficiency"],
-      ["LEGACY", "infrastructure blocking digital initiatives"],
+      ["LEGACY", "infrastructure limiting innovation"],
     ],
-    footerTitle: "INFRASTRUCTURE LIMITS",
+    footerTitle: "INFRASTRUCTURE DEBT",
     footerText: "SLOW. EXPENSIVE.",
     showArrow: true,
   },
@@ -27,12 +27,12 @@ const metricGroups = [
     icon: <CloudCog size={22} strokeWidth={1.5} />,
     title: "Solution",
     items: [
-      ["AWS", "cloud migration of 2,000+ servers"],
-      ["HYBRID", "multi-environment cloud architecture"],
+      ["AWS", "migration of 2,000+ enterprise servers"],
+      ["HYBRID", "500 on-prem systems retained strategically"],
       ["IaC", "Terraform infrastructure automation"],
-      ["ORG", "multi-account AWS governance structure"],
-      ["FINOPS", "CloudHealth cloud cost optimization"],
-      ["24M", "global migration transformation program"],
+      ["ORG", "multi-account AWS governance"],
+      ["FINOPS", "CloudHealth cost optimization"],
+      ["24M", "global migration transformation"],
     ],
     footerTitle: "CLOUD MODERNIZATION",
     footerText: "AUTOMATED. SCALABLE.",
@@ -40,18 +40,15 @@ const metricGroups = [
   },
 
   {
-    icon: <Rocket size={22} strokeWidth={1.5} />,
+    icon: <GaugeCircle size={22} strokeWidth={1.5} />,
     title: "Results",
     items: [
-      ["2,000", "servers successfully migrated"],
-      ["500", "applications modernized"],
-      ["50", "data centers decommissioned"],
-      ["150TB", "enterprise data migrated"],
-      ["99.99%", "cloud infrastructure uptime achieved"],
-      ["$50M", "annual infrastructure savings"],
+      ["$50M", "annual infrastructure cost savings"],
+      ["99.99%", "enterprise cloud uptime achieved"],
       ["2H", "infrastructure provisioning time"],
+      ["3X", "improvement in disaster recovery"],
       ["80%", "reduction in maintenance burden"],
-      ["10M", "payback period realization"],
+      ["10M", "payback period achieved"],
     ],
     footerTitle: "CLOUD IMPACT",
     footerText: "FASTER. RESILIENT.",

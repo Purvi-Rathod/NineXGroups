@@ -2,14 +2,14 @@ import SubPageHero from "@/components/sections/common/SubPageHero";
 import OverviewSection from "@/components/sections/common/OverviewSection";
 import ClientSuccessMetricsSection from "../ClientSuccessMetricsSection";
 import {
-  Globe2,
-  MessagesSquare,
-  SmilePlus,
+  DatabaseZap,
+  Headphones,
+  HeartHandshake,
 } from "lucide-react";
 
 const metricGroups = [
   {
-    icon: <Globe2 size={22} strokeWidth={1.5} />,
+    icon: <DatabaseZap size={22} strokeWidth={1.5} />,
     title: "Challenge",
     items: [
       ["200+", "fragmented customer systems globally"],
@@ -19,42 +19,39 @@ const metricGroups = [
       ["30", "countries lacking connected CX operations"],
     ],
     footerTitle: "CX FRAGMENTATION",
-    footerText: "DISCONNECTED. INCONSISTENT.",
+    footerText: "DISCONNECTED. COMPLEX.",
     showArrow: true,
   },
 
   {
-    icon: <MessagesSquare size={22} strokeWidth={1.5} />,
+    icon: <Headphones size={22} strokeWidth={1.5} />,
     title: "Solution",
     items: [
       ["DATA", "Salesforce Data Cloud unification"],
-      ["CRM", "Service Cloud deployment across 30 countries"],
+      ["CRM", "Service Cloud deployment globally"],
       ["AI", "Adobe Journey Optimizer personalization"],
       ["CC", "Genesys omnichannel contact centers"],
       ["VOICE", "Qualtrics customer feedback analytics"],
       ["BOT", "AI chatbots resolving 60% of inquiries"],
     ],
     footerTitle: "CONNECTED EXPERIENCE",
-    footerText: "PERSONALIZED. OMNICHANNEL.",
+    footerText: "INTELLIGENT. OMNICHANNEL.",
     showArrow: false,
   },
 
   {
-    icon: <SmilePlus size={22} strokeWidth={1.5} />,
+    icon: <HeartHandshake size={22} strokeWidth={1.5} />,
     title: "Results",
     items: [
-      ["50M", "customer records unified globally"],
-      ["30", "country-specific deployments completed"],
-      ["20K", "employees trained successfully"],
-      ["500+", "legacy systems integrated"],
-      ["75", "Net Promoter Score achieved"],
-      ["$200M", "cross-sell revenue generated"],
-      ["30%", "reduction in acquisition costs"],
-      ["50%", "decrease in support costs"],
+      ["+40", "point increase in NPS score"],
+      ["$200M", "incremental cross-sell revenue"],
+      ["30%", "lower customer acquisition costs"],
+      ["50%", "reduction in support costs"],
+      ["90%", "digital customer satisfaction"],
       ["4.5★", "mobile app customer rating"],
     ],
-    footerTitle: "CX TRANSFORMATION",
-    footerText: "CONNECTED. DELIGHTFUL.",
+    footerTitle: "CX IMPACT",
+    footerText: "PERSONALIZED. SCALABLE.",
     showArrow: false,
   },
 ];
