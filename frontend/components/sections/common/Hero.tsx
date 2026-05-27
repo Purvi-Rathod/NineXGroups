@@ -28,7 +28,7 @@ export default function EnterpriseHero({
   stats,
 }: EnterpriseHeroProps) {
   return (
-    <section className="relative overflow-hidden text-white">
+    <section className="relative overflow-hidden text-white min-h-screen lg:min-h-[660px]">
       {/* BACKGROUND */}
       <div className="absolute inset-0">
         <Image
@@ -43,7 +43,7 @@ export default function EnterpriseHero({
       </div>
 
       {/* MAIN CONTAINER */}
-      <div className="relative z-10 w-full max-w-[1320px] mx-auto px-5 sm:px-2 md:px-8 lg:px-12 xl:px-14 pt-2 md:pt-4 lg:pt-6 pb-8 md:pb-10">
+      <div className="relative z-10 w-full max-w-[1250px] mx-auto px-5 sm:px-2 md:px-8 lg:px-12 xl:px-14 pt-2 md:pt-4 lg:pt-6 pb-8 md:pb-10">
         {/* HERO GRID */}
         <div className="grid lg:grid-cols-[62%_38%] gap-6 xl:gap-10 items-start">
           {/* LEFT SIDE */}

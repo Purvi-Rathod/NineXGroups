@@ -23,7 +23,7 @@ export default function ClientSuccessMetricsSection({
 }: ClientSuccessMetricsSectionProps) {
   return (
     <section className="w-full overflow-x-hidden bg-[#f2f1ef] py-3">
-      <div className="mx-auto w-full max-w-full px-3 lg:px-0 mt-20 mb-20">
+      <div className="mx-auto w-full max-w-[1220px] px-5 lg:px-0 mt-20 mb-20">
         <div className="w-full grid grid-cols-1 gap-[2px] border border-[#e6e6e3] bg-[#e6e6e3] lg:grid-cols-[250px_minmax(0,1fr)_minmax(0,1fr)_minmax(0,1fr)_60px]">
           <div className="relative flex min-h-[500px] flex-col justify-between overflow-hidden bg-[#f8f8f6] px-[22px] py-[22px]">
             <h2 className="max-w-[220px] text-[26px] font-normal uppercase leading-[1.04] tracking-[-2px] text-black">

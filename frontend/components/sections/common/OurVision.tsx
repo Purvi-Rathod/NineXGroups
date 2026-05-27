@@ -7,19 +7,15 @@ interface OverviewSectionProps {
     eyebrow: string;
     leftTitle: string[];
     title: string;
-    description: string;
-    implementationTitle: string;
-    implementations: string[];
+    description: string
     image: string;
 }
 
-export default function OverviewSection({
+export default function OurVision({
     eyebrow,
     leftTitle,
     title,
     description,
-    implementationTitle,
-    implementations,
     image,
 }: OverviewSectionProps) {
     return (
@@ -84,7 +80,7 @@ export default function OverviewSection({
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6 }}
-                            className="text-[14px] sm:text-[20px] lg:text-[24px] leading-[1.3] tracking-[-0.5px] font-light text-[#111111] max-w-[760px] mb-[14px]"
+                            className="max-w-full text-[30px] sm:text-[40px] md:text-[46px] lg:text-[52px] leading-[1.02] tracking-[-1.5px] sm:tracking-[-2px] lg:tracking-[-2.4px] font-normal text-black"
                         >
                             {title}
                         </motion.h2>
@@ -93,29 +89,6 @@ export default function OverviewSection({
                         <p className="text-[13px] leading-[1.8] text-black/68 max-w-[720px] mb-[14px]">
                             {description}
                         </p>
-
-                        {/* IMPLEMENT TITLE */}
-                        <h3 className="text-[#000033] text-[16px] leading-none tracking-[-0.5px] font-bold mb-[14px]">
-                            {implementationTitle}
-                        </h3>
-
-                        {/* LIST */}
-                        <div className="mb-0">
-
-                            {implementations.map((item, index) => (
-                                <div
-                                    key={index}
-                                    className="flex items-start gap-[6px] py-[2px]"
-                                >
-
-                                    <span className="w-[4px] h-[4px] rounded-full bg-black mt-[9px] shrink-0" />
-
-                                    <p className="text-[13px] leading-[1.25] text-black/84">
-                                        {item}
-                                    </p>
-                                </div>
-                            ))}
-                        </div>
 
                         {/* IMAGE */}
                         <div className="relative overflow-hidden mt-0 mb-0 leading-none">

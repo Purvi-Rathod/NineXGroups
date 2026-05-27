@@ -4,7 +4,8 @@ import WhatWeDoSection from "./WhatWeDoSection";
 import TechnologyPartnerships from "./TechnologyPartnerships";
 import ClientSuccessMetricsSection from "./ClientSuccessMetricsSection";
 import { Layers3, TrendingUp, Target, Users } from "lucide-react";
-
+import ValuesSection from "@/components/sections/common/ValuesSection";
+import OurVision from "@/components/sections/common/OurVision";
 import {
   BarChart3,
   SlidersHorizontal,
@@ -84,6 +85,32 @@ export default function Page() {
         ]}
       />
 
+      <OurVision
+        eyebrow="OUR VISION"
+        leftTitle={[
+          "NO",
+          "CODE.",
+          "NO",
+          "LIMITS.",
+        ]}
+        title="A world where every business competes on strategy, not just spend."
+        description="At NineXFold, we engineer the systems behind sustainable growth. Brand intelligence, demand generation, search visibility, content authority, and AI-powered automation architected together as one unified performance engine. We don't run campaigns. We build growth infrastructure. The kind that compounds, scales, and delivers measurable outcomes quarter after quarter, giving enterprise businesses a permanent structural advantage over their competition."
+        image="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1600&auto=format&fit=crop"
+      />
+
+      <ValuesSection
+        eyebrow="OUR VALUES"
+        title="The principles that drive every system we build."
+        description="Enterprise growth is not accidental. It is architected. Every engagement we take on is built on four principles that ensure what we deliver is not just impactful today but defensible, scalable, and compounding tomorrow."
+        quote="Think in Systems, Not Campaigns"
+        quoteDescription="We engineer interconnected growth infrastructure where brand, demand, search, content, and AI work as one compounding system — not isolated tactics."
+        tags={[
+          "Architecture",
+          "Integration",
+          "Scale",
+        ]}
+        image="https://images.unsplash.com/photo-1545987796-200677ee1011?w=600&q=80"
+      />
       <WhatWeDoSection />
       <TechnologyPartnerships />
       <ClientSuccessMetricsSection
