@@ -30,17 +30,18 @@ export default function WhatWeDoSection() {
           {/* CARD 1 */}
           <div className="h-full px-[18px] sm:px-[22px] lg:px-[24px] pt-[18px] sm:pt-[20px] lg:pt-[22px] pb-[16px] sm:pb-[18px]">
             <p className="text-[13px] sm:text-[14px] leading-[1.9] sm:leading-[2] text-black mb-8">
-              NineXFold - Enterprise Systems
+              NineXFold — Enterprise Marketing
             </p>
 
             <p className="text-[13px] sm:text-[14px] leading-[1.9] sm:leading-[2.05] text-[#343434] mb-10 max-w-[240px]">
-              We bring together strategy, architecture, implementation, and
-              optimization services to help businesses build scalable,
-              intelligent, and future-ready systems.
+              We bring together brand strategy, demand generation, search
+              visibility, content authority, and AI-powered growth systems to
+              help businesses scale faster, market smarter, and win
+              consistently.
             </p>
 
             <p className="text-[13px] sm:text-[14px] leading-[1.9] sm:leading-[2] font-semibold text-black">
-              One partner. Six practice areas.
+              One partner. Eight practice areas.
               <br />
               Endless impact.
             </p>
@@ -65,8 +66,9 @@ export default function WhatWeDoSection() {
               </p>
 
               <p className="text-[12px] sm:text-[13px] lg:text-[14px] leading-[1.8] lg:leading-[1.9] text-[#444] max-w-full sm:max-w-[250px]">
-                We design systems that unify data, processes, and teams to drive
-                predictable revenue and sustainable growth.
+                We design marketing-led revenue systems that unify brand,
+                demand, and data — creating predictable growth engines that
+                convert attention into pipeline and pipeline into revenue.
               </p>
             </div>
           </Link>
@@ -86,13 +88,14 @@ export default function WhatWeDoSection() {
               </h3>
 
               <p className="text-[13px] sm:text-[14px] lg:text-[15px] leading-[1.75] text-[#ff5a1f] mb-6 max-w-full sm:max-w-[250px]">
-                Implement CRM and sales automation that accelerates pipeline
-                velocity and increases win rates
+                Deploy marketing automation and lead infrastructure that
+                accelerates pipeline velocity and increases win rates
               </p>
 
               <p className="text-[12px] sm:text-[13px] lg:text-[14px] leading-[1.8] lg:leading-[1.9] text-[#444] max-w-full sm:max-w-[250px]">
-                We build and implement CRM and automation solutions that
-                streamline workflows, improve engagement, and boost conversion.
+                We build performance marketing funnels, lead nurture sequences,
+                and CRM-connected campaigns that streamline the buyer journey,
+                improve engagement, and boost conversion at every stage.
               </p>
             </div>
           </Link>
@@ -116,8 +119,9 @@ export default function WhatWeDoSection() {
               </p>
 
               <p className="text-[12px] sm:text-[13px] lg:text-[14px] leading-[1.8] lg:leading-[1.9] text-[#444] max-w-full sm:max-w-[250px]">
-                We help you attract the right audience, nurture them across the
-                funnel, and measure what truly drives growth.
+                We help you attract the right audience with paid media, SEO,
+                email automation, and content strategy — then measure what truly
+                drives growth through attribution and analytics.
               </p>
             </div>
           </Link>
@@ -137,13 +141,15 @@ export default function WhatWeDoSection() {
               </h3>
 
               <p className="text-[13px] sm:text-[14px] lg:text-[15px] leading-[1.75] text-[#ff5a1f] mb-6 max-w-full sm:max-w-[250px]">
-                Build customer experience platforms that orchestrate journeys and
-                deliver personalization at scale
+                Define, position, and operationalise your brand as a strategic
+                enterprise asset
               </p>
 
               <p className="text-[12px] sm:text-[13px] lg:text-[14px] leading-[1.8] lg:leading-[1.9] text-[#444] max-w-full sm:max-w-[250px]">
-                We create connected experiences that delight customers, improve
-                retention, and strengthen long-term loyalty.
+                We architect your complete brand foundation — from naming and
+                identity systems to messaging frameworks, market positioning,
+                and go-to-market strategy — so every touchpoint communicates
+                one consistent, powerful story.
               </p>
             </div>
           </Link>
@@ -163,13 +169,15 @@ export default function WhatWeDoSection() {
               </h3>
 
               <p className="text-[13px] sm:text-[14px] lg:text-[15px] leading-[1.75] text-[#ff5a1f] mb-6 max-w-full sm:max-w-[250px]">
-                Create analytics and intelligence platforms that turn data into
-                actionable insights
+                Build a full-funnel demand engine that fills pipeline and
+                converts leads at enterprise scale
               </p>
 
               <p className="text-[12px] sm:text-[13px] lg:text-[14px] leading-[1.8] lg:leading-[1.9] text-[#444] max-w-full sm:max-w-[250px]">
-                We turn raw data into clear, real-time insights that empower
-                smarter decisions and drive business performance.
+                We deploy paid media, ABM targeting, funnel infrastructure,
+                email nurture flows, and marketing automation — creating a
+                revenue-ready demand machine that consistently delivers
+                qualified pipeline and measurable growth.
               </p>
             </div>
           </Link>
@@ -188,13 +196,16 @@ export default function WhatWeDoSection() {
               </h3>
 
               <p className="text-[13px] sm:text-[14px] lg:text-[15px] leading-[1.75] text-[#ff5a1f] mb-6 max-w-full sm:max-w-[250px]">
-                Create visibility across search engines, review sites, and local
-                listings so customers find you first.
+                Dominate organic, AI, and local search through SEO, AEO, and
+                GEO strategies
               </p>
 
               <p className="text-[12px] sm:text-[13px] lg:text-[14px] leading-[1.8] lg:leading-[1.9] text-[#444] max-w-full sm:max-w-[250px]">
-                We implement and optimize core enterprise systems that improve
-                efficiency, reduce costs, and support business scale.
+                We engineer your presence across every search surface —
+                traditional rankings via technical and content SEO, featured
+                snippets and AI overviews via AEO, and generative AI platforms
+                like ChatGPT and Perplexity via GEO — so your brand is found
+                everywhere your buyers are looking.
               </p>
             </div>
           </Link>
@@ -209,15 +220,20 @@ export default function WhatWeDoSection() {
               </div>
 
               <h3 className="text-[18px] lg:text-[20px] tracking-[-0.8px] text-black mb-5">
-                AI & Automation
+                AI & Automation System
               </h3>
 
               <p className="text-[13px] sm:text-[14px] lg:text-[15px] leading-[1.75] text-[#ff5a1f] mb-6 max-w-full sm:max-w-[250px]">
-                Implement AI-powered forecasting, agent assist, and automation across revenue teams
+                Multiply growth velocity with AI-powered content, outreach, and
+                operations at enterprise scale
               </p>
 
               <p className="text-[12px] sm:text-[13px] lg:text-[14px] leading-[1.8] lg:leading-[1.9] text-[#444] max-w-full sm:max-w-[250px]">
-                We bring AI and automation across the entire revenue function — from lead scoring and predictive forecasting to agent assistance and automated workflows — creating systems that work faster, learn continuously, and drive measurable business impact.
+                We implement AI content engines, WhatsApp and chatbot
+                automation, predictive LTV models, creative testing loops, GEO
+                optimisation, and end-to-end workflow automation via Make,
+                Zapier, and n8n — so your brand operates faster, smarter, and
+                without limits.
               </p>
             </div>
           </Link>
@@ -236,11 +252,15 @@ export default function WhatWeDoSection() {
               </h3>
 
               <p className="text-[13px] sm:text-[14px] lg:text-[15px] leading-[1.75] text-[#ff5a1f] mb-6 max-w-full sm:max-w-[250px]">
-                Build thought leadership across content, SEO, and social channels to drive organic visibility and inbound demand
+                Build long-term brand authority through content, community,
+                influence, and earned media
               </p>
 
               <p className="text-[12px] sm:text-[13px] lg:text-[14px] leading-[1.8] lg:leading-[1.9] text-[#444] max-w-full sm:max-w-[250px]">
-                We develop authoritative content, SEO strategies, and social media programs that position you as a category leader, increase organic visibility, and generate consistent inbound leads.
+                We run your full content and social engine — editorial strategy,
+                social media management, influencer programs, video production,
+                thought leadership, and PR — creating the trust and visibility
+                that compounds into lasting competitive advantage.
               </p>
             </div>
           </Link>
@@ -259,11 +279,15 @@ export default function WhatWeDoSection() {
               </h3>
 
               <p className="text-[13px] sm:text-[14px] lg:text-[15px] leading-[1.75] text-[#ff5a1f] mb-6 max-w-full sm:max-w-[250px]">
-                Build the digital foundation that powers your revenue engine — combining CRM, CDP, and MarTech integrations into a single source of truth for customer data and revenue operations
+                Build the technical marketing backbone that powers performance,
+                data, and scale
               </p>
 
               <p className="text-[12px] sm:text-[13px] lg:text-[14px] leading-[1.8] lg:leading-[1.9] text-[#444] max-w-full sm:max-w-[250px]">
-                We bring AI and automation across the entire revenue function — from lead scoring and predictive forecasting to agent assistance and automated workflows — creating systems that work faster, learn continuously, and drive measurable business impact.
+                We architect and implement your complete digital foundation —
+                enterprise websites, UI/UX, mobile apps, analytics stack, CRM
+                integrations, and full martech architecture — ensuring every
+                system is connected, measurable, and built to scale.
               </p>
             </div>
           </Link>
