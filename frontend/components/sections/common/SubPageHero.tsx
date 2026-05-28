@@ -53,9 +53,9 @@ export default function SubPageHero({
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="max-w-[340px] lg:pb-[10px]"
+              className="max-w-[540px] lg:pb-[10px]"
             >
-              <p className="text-white/90 text-[14px] sm:text-[15px] lg:text-[16px] leading-[1.8]">
+              <p className="text-white/90 text-[10px] sm:text-[12px] lg:text-[14px] leading-[1.5]">
                 {subheadline}
               </p>
             </motion.div>

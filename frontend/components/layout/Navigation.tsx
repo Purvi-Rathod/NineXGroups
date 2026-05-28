@@ -9,6 +9,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { buttonHover, buttonTap } from "@/animations";
 import type { BlogPost } from "@/types/blog";
 
+
 interface NavigationItem {
   label: string;
   href: string;
@@ -93,13 +94,6 @@ const navigationItems: NavigationItem[] = [
             href: "/ninexFoldServices/revenue-systems",
             isHeading: true,
           },
-          { label: "RevOps", href: "/ninexFoldServices/revops" },
-          {
-            label: "Revenue Architecture",
-            href: "/ninexFoldServices/revenue-architecture",
-          },
-          { label: "Pricing Strategy", href: "/ninexFoldServices/pricing-strategy" },
-
           // Sales Systems
           {
             label: "Sales Systems",
@@ -107,15 +101,9 @@ const navigationItems: NavigationItem[] = [
             isHeading: true,
           },
           {
-            label: "CRM Implementation",
-            href: "/ninexFoldServices/crm-implementation",
+            label: "AI & Automation",
+            href: "/ninexFoldServices/ai-automation"
           },
-          { label: "Sales Automation", href: "/ninexFoldServices/sales-automation" },
-          {
-            label: "Pipeline Management",
-            href: "/ninexFoldServices/pipeline-management",
-          },
-
           // Marketing Systems
           {
             label: "Marketing Systems",
@@ -123,20 +111,25 @@ const navigationItems: NavigationItem[] = [
             isHeading: true,
           },
           {
-            label: "Marketing Automation",
-            href: "/ninexFoldServices/marketing-automation",
+            label: "Brand Intelligence System",
+            href: "/ninexFoldServices/brand-intelligence-system",
           },
-          { label: "MOps & Analytics", href: "/ninexFoldServices/mops-analytics" },
-
-          // More Systems
           {
-            label: "More Systems",
-            href: "/ninexFoldServices/more-systems",
-            isHeading: true,
+            label: "Demand Generation System",
+            href: "/ninexFoldServices/demand-generation-system"
           },
-          { label: "CX Systems", href: "/ninexFoldServices/cx-systems" },
-          { label: "BI & Data", href: "/ninexFoldServices/bi-data" },
-          { label: "ERP", href: "/ninexFoldServices/erp" },
+          {
+            label: "Search Visibility System",
+            href: "/ninexFoldServices/search-visibility-system",
+          },
+          {
+            label: "Content & Social Authority System",
+            href: "/ninexFoldServices/content-social-authority-system",
+          },
+          {
+            label: "Digital Infrastructure System",
+            href: "/ninexFoldServices/digital-infrastructure-system"
+          },
         ],
       },
 
@@ -735,8 +728,8 @@ export default function Navigation() {
                                           handleChildClick(child.href, e);
                                         }}
                                         className={`flex items-center justify-between cursor-pointer transition-colors ${isCategoryHovered
-                                            ? "text-[#1959FA]"
-                                            : "text-[#0A0A0A] hover:text-[#1959FA]"
+                                          ? "text-[#1959FA]"
+                                          : "text-[#0A0A0A] hover:text-[#1959FA]"
                                           }`}
                                       >
                                         <span
@@ -806,8 +799,8 @@ export default function Navigation() {
                                                   }
                                                 }}
                                                 className={`flex items-center justify-between py-2 px-3 cursor-pointer transition-colors rounded ${isSubHovered
-                                                    ? "bg-white text-[#1959FA] shadow-sm"
-                                                    : "text-[#0A0A0A] hover:bg-white hover:text-[#1959FA]"
+                                                  ? "bg-white text-[#1959FA] shadow-sm"
+                                                  : "text-[#0A0A0A] hover:bg-white hover:text-[#1959FA]"
                                                   }`}
                                               >
                                                 <span className="text-sm">
