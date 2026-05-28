@@ -4,8 +4,8 @@ import WhatWeDoSection from "./WhatWeDoSection";
 import TechnologyPartnerships from "./TechnologyPartnerships";
 import ClientSuccessMetricsSection from "./ClientSuccessMetricsSection";
 import { Layers3, TrendingUp, Target, Users } from "lucide-react";
-import ValuesSection from "@/components/sections/common/ValuesSection";
-import OurVision from "@/components/sections/common/OurVision";
+import ValuesSection from "@/app/ninexFoldServices/ValuesSection";
+import OurVision from "@/app/ninexFoldServices/OurVision";
 import {
   BarChart3,
   SlidersHorizontal,

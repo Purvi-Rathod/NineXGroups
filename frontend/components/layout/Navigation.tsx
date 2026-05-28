@@ -147,21 +147,46 @@ const navigationItems: NavigationItem[] = [
             label: "AI & Generative AI",
             href: "/ninexdevOpsBrand/ai-generative-ai",
           },
-          { label: "Cybersecurity", href: "/ninexdevOpsBrand/cybersecurity" },
           {
-            label: "Digital Engineering",
-            href: "/ninexdevOpsBrand/digital-engineering",
+            label: "AI Agent Development",
+            href: "/ninexdevOpsBrand/ai-agent-development",
           },
           {
-            label: "Product Engineering",
-            href: "/ninexdevOpsBrand/product-engineering",
+            label: "Cybersecurity",
+            href: "/ninexdevOpsBrand/cybersecurity"
           },
-          { label: "DevOps & CI/CD", href: "/ninexdevOpsBrand/devops-cicd" },
-          { label: "Networks", href: "/ninexdevOpsBrand/networks" },
           {
-            label: "Digital Workspace",
-            href: "/ninexdevOpsBrand/digital-workspace",
+            label: "CX Systems",
+            href: "/ninexdevOpsBrand/cx-systems",
           },
+          {
+            label:"ERP Enterprise Applications",
+            href:"/ninexdevOpsBrand/erp-enterprise-applications"
+          },
+          {
+            label:"Digital Engineering",
+            href:"/ninexdevOpsBrand/digital-engineering"
+          },
+          {
+            label:"DevOps & Automation",
+            href:"/ninexdevOpsBrand/devops-automation"
+          },
+          {
+            label:"Data Engineering & Analytics",
+            href:"/ninexdevOpsBrand/data-engineering-analytics"
+          },
+          {
+            label:"Custom Software Development",
+            href:"/ninexdevOpsBrand/custom-software-development"
+          },
+          {
+            label:"IoT & Edge Computing",
+            href:"/ninexdevOpsBrand/iot-edge-computing"
+          },
+          {
+            label:"Networks & Digital Workspace",
+            href:"/ninexdevOpsBrand/networks-digital-workspace"
+          }
         ],
       },
 

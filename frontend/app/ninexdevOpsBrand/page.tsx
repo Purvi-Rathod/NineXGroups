@@ -1,5 +1,6 @@
 import Hero from "@/components/sections/common/Hero";
-import OurApproachSection from "@/components/sections/common/OurApproachSection";
+import OurVision from "./OurVision";
+import ValuesSection from "./ValuesSection";
 import WhatWeDoSection from "./WhatWeDoSection";
 import ClientSuccessMetricsSection from "./ClientSuccessMetricsSection";
 import TechnologyPartnerships from "./TechnologyPartnerships";
@@ -18,43 +19,44 @@ import {
 const metricGroups = [
   {
     icon: <BarChart3 size={22} strokeWidth={1.5} />,
-    title: "Revenue Impact",
+    title: "Client Success Story",
     items: [
-      ["85%", "average revenue increase within 12 months"],
-      ["45%", "improvement in forecast accuracy"],
-      ["60%", "faster sales cycles"],
-      ["40%", "increase in average deal size"],
+      ["50", "data centres modernised across global infrastructure"],
+      ["12", "business units unified into one ERP ecosystem"],
+      ["200+", "applications transformed through DevOps automation"],
+      ["45", "manufacturing facilities connected through IoT systems"],
     ],
-    footerTitle: "OUTCOME DRIVEN",
-    footerText: "MEASURABLE. IMPACTFUL.",
+    footerTitle: "FORTUNE 100 MANUFACTURER",
+    footerText: "COMPLETE TECHNOLOGY TRANSFORMATION.",
     showArrow: true,
   },
   {
     icon: <SlidersHorizontal size={22} strokeWidth={1.5} />,
-    title: "Operational Efficiency",
+    title: "Transformation Results",
     items: [
-      ["70%", "reduction in manual data entry"],
-      ["60%", "faster reporting and analytics"],
-      ["50%", "reduction in system maintenance costs"],
-      ["40%", "improvement in data quality"],
+      ["$80M", "annual cost savings across infrastructure and operations"],
+      ["40%", "improvement in operational efficiency"],
+      ["95%", "forecast accuracy increased from 55%"],
+      ["99.99%", "uptime across all critical systems"],
     ],
-    footerTitle: "BUILT FOR EFFICIENCY",
-    footerText: "STREAMLINED. SCALABLE.",
+    footerTitle: "MEASURABLE IMPACT",
+    footerText: "SCALABLE. ENTERPRISE READY.",
     showArrow: false,
   },
   {
     icon: <User size={22} strokeWidth={1.5} />,
-    title: "User Adoption",
+    title: "Technology Transformation",
     items: [
-      ["95%", "user adoption within 90 days"],
-      ["4.5/5", "average user satisfaction score"],
-      ["80%", "reduction in support tickets"],
-      ["90%", "process compliance"],
+      ["AWS+GCP", "multi-cloud infrastructure deployment"],
+      ["SAP S/4HANA", "enterprise ERP consolidation"],
+      ["Snowflake", "unified enterprise data platform"],
+      ["18-Month", "enterprise ROI achieved after transformation"],
     ],
+    footerTitle: "AI POWERED OPERATIONS",
+    footerText: "CONNECTED. OPTIMISED.",
     showArrow: false,
   },
 ];
-
 export default function Page() {
   return (
     <>
@@ -89,98 +91,37 @@ export default function Page() {
           },
         ]}
       />
-      <WhatWeDoSection />
-      {/* OUR APPROACH SECTION */}
-      {/* <OurApproachSection
-        eyebrow="OUR APPROACH"
-        title="A proven 5-phase methodology for measurable success."
-        phases={[
-          {
-            number: "01",
-
-            title: "Phase 1: Strategy & Architecture",
-
-            duration: "Weeks 1–4",
-
-            points: [
-              "Current state assessment and capability mapping",
-              "Business process analysis and optimization",
-              "Technology evaluation and selection",
-              "Solution architecture and roadmap",
-              "ROI modeling and business case",
-            ],
-          },
-
-          {
-            number: "02",
-
-            title: "Phase 2: Design & Configuration",
-
-            duration: "Weeks 5–12",
-
-            points: [
-              "Detailed solution design",
-              "System configuration and customization",
-              "Integration architecture",
-              "Data migration strategy",
-              "Change management planning",
-            ],
-          },
-
-          {
-            number: "03",
-
-            title: "Phase 3: Build & Integration",
-
-            duration: "Weeks 13–20",
-
-            points: [
-              "Platform implementation",
-              "Custom development and extensions",
-              "System integration and APIs",
-              "Data migration execution",
-              "Testing and quality assurance",
-            ],
-          },
-
-          {
-            number: "04",
-
-            title: "Phase 4: Training & Enablement",
-
-            duration: "Weeks 21–24",
-
-            points: [
-              "End-user training programs",
-              "Administrator certification",
-              "Documentation and playbooks",
-              "Change management execution",
-              "Adoption measurement",
-            ],
-          },
-
-          {
-            number: "05",
-
-            title: "Phase 5: Launch & Optimization",
-
-            duration: "Week 25+",
-
-            points: [
-              "Phased rollout or big-bang launch",
-              "Hypercare support (30–60 days)",
-              "Performance monitoring and optimization",
-              "Continuous improvement",
-              "Managed services transition",
-            ],
-          },
+      <OurVision
+        eyebrow="OUR VISION"
+        leftTitle={[
+          "TECH-NOLOGY",
+          "THAT-BUILDS",
+          "ENTER-PRISE",
+          "ADVAN-TAGE.",
         ]}
-      /> */}
+        title="A world where every enterprise has the technology infrastructure to compete with the best-resourced players in their market."
+        description="Technology is the great equaliser — but only for enterprises that build it with discipline, govern it with rigour, and operate it with excellence. We bring the full spectrum of technology capability — from cloud to AI to ERP to custom code — to every client we partner with, ensuring technology is always an asset that compounds in value, never a liability that constrains growth."
+        image="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1600&auto=format&fit=crop"
+      />
+
+      <ValuesSection
+        eyebrow="OUR VALUES"
+        title="The principles behind every technology system we engineer."
+        description="Technology built without principles accumulates debt that compounds against you. Every engagement we take on is grounded in these four commitments to ensure what we build is excellent, secure, commercially sound, and built to operate long-term."
+        quote="Engineering Excellence Without Compromise"
+        quoteDescription="We do not cut corners on architecture, security, or code quality. The technical decisions made in the first six months determine how the system performs for the next six years."
+        tags={[
+          "Excellence",
+          "Discipline",
+          "Standards",
+        ]}
+        image="https://images.unsplash.com/photo-1545987796-200677ee1011?w=600&q=80"
+      />
+      <WhatWeDoSection />
       <TechnologyPartnerships />
       <ClientSuccessMetricsSection
         metricGroups={metricGroups}
       />
-      <Contact />
     </>
   );
 }

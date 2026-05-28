@@ -23,7 +23,7 @@ export default function ClientSuccessMetricsSection({
 }: ClientSuccessMetricsSectionProps) {
   return (
     <section className="w-full overflow-x-hidden bg-[#f6f4f8] py-3">
-      <div className="mx-auto w-full max-w-full px-3 lg:px-0 mt-20 mb-20">
+      <div className="mx-auto w-full max-w-[1220px] px-3 lg:px-0 mt-20 mb-20">
         {/* TOP GRID */}
         <div className="grid w-full grid-cols-1 gap-[2px] border border-[#e7e4ec] bg-[#e7e4ec] lg:grid-cols-[250px_minmax(0,1fr)_minmax(0,1fr)_minmax(0,1fr)_60px]">
           {/* LEFT INTRO */}

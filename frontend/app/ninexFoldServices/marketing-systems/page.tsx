@@ -1,8 +1,8 @@
 import SubPageHero from "@/components/sections/common/SubPageHero";
 import ClientSuccessMetricsSection from "../ClientSuccessMetricsSection";
 import WhatWeDoSection from "../WhatWeDo";
-import OurVision from "@/components/sections/common/OurVision";
-import ValuesSection from "@/components/sections/common/ValuesSection";
+import OurVision from "@/app/ninexFoldServices/OurVision";
+import ValuesSection from "@/app/ninexFoldServices/ValuesSection";
 import {
   Boxes,
   Megaphone,
