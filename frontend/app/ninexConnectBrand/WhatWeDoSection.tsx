@@ -7,6 +7,15 @@ import {
   Headphones,
   Megaphone,
 } from "lucide-react";
+import Link from "next/link";
+
+const routes = {
+  crm: "/ninexConnectBrand/crm-implementation",
+  sales: "/ninexConnectBrand/sales-automation",
+  journey: "/ninexConnectBrand/customer-journey-design",
+  contact: "/ninexConnectBrand/contact-center-solutions",
+  marketing: "/ninexConnectBrand/marketing-platforms",
+};
 
 export default function WhatWeDoSection() {
   return (
@@ -58,124 +67,134 @@ export default function WhatWeDoSection() {
           </div>
 
           {/* CARD 1 */}
-          <div className="min-h-[320px] border border-[#e7e4ec] bg-white p-[22px] sm:min-h-[340px] lg:min-h-[360px]">
-            <div className="mb-[24px]">
-              <Database
-                strokeWidth={1.5}
-                className="h-[64px] w-[64px] text-[#22D3EE] sm:h-[72px] sm:w-[72px]"
-              />
+          <Link href={routes.crm} className="block h-full">
+            <div className="min-h-[320px] border border-[#e7e4ec] bg-white p-[22px] sm:min-h-[340px] lg:min-h-[360px]">
+              <div className="mb-[24px]">
+                <Database
+                  strokeWidth={1.5}
+                  className="h-[64px] w-[64px] text-[#22D3EE] sm:h-[72px] sm:w-[72px]"
+                />
+              </div>
+
+              <h3 className="mb-4 text-[20px] tracking-[-0.6px] text-[#0b0d39]">
+                CRM Implementation
+              </h3>
+
+              <p className="mb-5 text-[14px] leading-[1.8] text-[#22D3EE] sm:text-[15px]">
+                Deploy Salesforce, Microsoft Dynamics, HubSpot, and custom CRM
+                solutions
+              </p>
+
+              <p className="text-[13px] leading-[1.85] text-[#555] sm:text-[14px]">
+                We implement scalable CRM ecosystems that centralize customer
+                data, automate engagement, and accelerate revenue growth.
+              </p>
             </div>
-
-            <h3 className="mb-4 text-[20px] tracking-[-0.6px] text-[#0b0d39]">
-              CRM Implementation
-            </h3>
-
-            <p className="mb-5 text-[14px] leading-[1.8] text-[#22D3EE] sm:text-[15px]">
-              Deploy Salesforce, Microsoft Dynamics, HubSpot, and custom CRM
-              solutions
-            </p>
-
-            <p className="text-[13px] leading-[1.85] text-[#555] sm:text-[14px]">
-              We implement scalable CRM ecosystems that centralize customer
-              data, automate engagement, and accelerate revenue growth.
-            </p>
-          </div>
+          </Link>
 
           {/* CARD 2 */}
-          <div className="min-h-[320px] border border-[#e7e4ec] bg-white p-[22px] sm:min-h-[340px] lg:min-h-[360px]">
-            <div className="mb-[24px]">
-              <Workflow
-                strokeWidth={1.5}
-                className="h-[64px] w-[64px] text-[#22D3EE] sm:h-[72px] sm:w-[72px]"
-              />
+          <Link href={routes.sales} className="block h-full">
+            <div className="min-h-[320px] border border-[#e7e4ec] bg-white p-[22px] sm:min-h-[340px] lg:min-h-[360px]">
+              <div className="mb-[24px]">
+                <Workflow
+                  strokeWidth={1.5}
+                  className="h-[64px] w-[64px] text-[#22D3EE] sm:h-[72px] sm:w-[72px]"
+                />
+              </div>
+
+              <h3 className="mb-4 text-[20px] tracking-[-0.6px] text-[#0b0d39]">
+                Sales Automation
+              </h3>
+
+              <p className="mb-5 text-[14px] leading-[1.8] text-[#22D3EE] sm:text-[15px]">
+                Automate sales workflows, implement CPQ, and deploy revenue
+                intelligence
+              </p>
+
+              <p className="text-[13px] leading-[1.85] text-[#555] sm:text-[14px]">
+                We streamline sales operations with automation systems that
+                improve efficiency, forecasting, and conversion rates.
+              </p>
             </div>
-
-            <h3 className="mb-4 text-[20px] tracking-[-0.6px] text-[#0b0d39]">
-              Sales Automation
-            </h3>
-
-            <p className="mb-5 text-[14px] leading-[1.8] text-[#22D3EE] sm:text-[15px]">
-              Automate sales workflows, implement CPQ, and deploy revenue
-              intelligence
-            </p>
-
-            <p className="text-[13px] leading-[1.85] text-[#555] sm:text-[14px]">
-              We streamline sales operations with automation systems that
-              improve efficiency, forecasting, and conversion rates.
-            </p>
-          </div>
+          </Link>
 
           {/* CARD 3 */}
-          <div className="min-h-[320px] border border-[#e7e4ec] bg-white p-[22px] sm:min-h-[340px] lg:min-h-[360px]">
-            <div className="mb-[24px]">
-              <Route
-                strokeWidth={1.5}
-                className="h-[64px] w-[64px] text-[#22D3EE] sm:h-[72px] sm:w-[72px]"
-              />
+          <Link href={routes.journey} className="block h-full">
+            <div className="min-h-[320px] border border-[#e7e4ec] bg-white p-[22px] sm:min-h-[340px] lg:min-h-[360px]">
+              <div className="mb-[24px]">
+                <Route
+                  strokeWidth={1.5}
+                  className="h-[64px] w-[64px] text-[#22D3EE] sm:h-[72px] sm:w-[72px]"
+                />
+              </div>
+
+              <h3 className="mb-4 text-[20px] tracking-[-0.6px] text-[#0b0d39]">
+                Customer Journey Design
+              </h3>
+
+              <p className="mb-5 text-[14px] leading-[1.8] text-[#22D3EE] sm:text-[15px]">
+                Map journeys, design experiences, and orchestrate omnichannel
+                touchpoints
+              </p>
+
+              <p className="text-[13px] leading-[1.85] text-[#555] sm:text-[14px]">
+                We design frictionless customer journeys that increase
+                engagement, retention, and lifetime value.
+              </p>
             </div>
-
-            <h3 className="mb-4 text-[20px] tracking-[-0.6px] text-[#0b0d39]">
-              Customer Journey Design
-            </h3>
-
-            <p className="mb-5 text-[14px] leading-[1.8] text-[#22D3EE] sm:text-[15px]">
-              Map journeys, design experiences, and orchestrate omnichannel
-              touchpoints
-            </p>
-
-            <p className="text-[13px] leading-[1.85] text-[#555] sm:text-[14px]">
-              We design frictionless customer journeys that increase
-              engagement, retention, and lifetime value.
-            </p>
-          </div>
+          </Link>
 
           {/* CARD 4 */}
-          <div className="min-h-[320px] border border-[#e7e4ec] bg-white p-[22px] sm:min-h-[340px] lg:min-h-[360px]">
-            <div className="mb-[24px]">
-              <Headphones
-                strokeWidth={1.5}
-                className="h-[64px] w-[64px] text-[#22D3EE] sm:h-[72px] sm:w-[72px]"
-              />
+          <Link href={routes.contact} className="block h-full">
+            <div className="min-h-[320px] border border-[#e7e4ec] bg-white p-[22px] sm:min-h-[340px] lg:min-h-[360px]">
+              <div className="mb-[24px]">
+                <Headphones
+                  strokeWidth={1.5}
+                  className="h-[64px] w-[64px] text-[#22D3EE] sm:h-[72px] sm:w-[72px]"
+                />
+              </div>
+
+              <h3 className="mb-4 text-[20px] tracking-[-0.6px] text-[#0b0d39]">
+                Contact Center Solutions
+              </h3>
+
+              <p className="mb-5 text-[14px] leading-[1.8] text-[#22D3EE] sm:text-[15px]">
+                Deploy cloud contact centers with AI-powered automation and
+                analytics
+              </p>
+
+              <p className="text-[13px] leading-[1.85] text-[#555] sm:text-[14px]">
+                We modernize customer support operations with AI-driven contact
+                center experiences and intelligent analytics.
+              </p>
             </div>
-
-            <h3 className="mb-4 text-[20px] tracking-[-0.6px] text-[#0b0d39]">
-              Contact Center Solutions
-            </h3>
-
-            <p className="mb-5 text-[14px] leading-[1.8] text-[#22D3EE] sm:text-[15px]">
-              Deploy cloud contact centers with AI-powered automation and
-              analytics
-            </p>
-
-            <p className="text-[13px] leading-[1.85] text-[#555] sm:text-[14px]">
-              We modernize customer support operations with AI-driven contact
-              center experiences and intelligent analytics.
-            </p>
-          </div>
+          </Link>
 
           {/* CARD 5 */}
-          <div className="min-h-[320px] border border-[#e7e4ec] bg-white p-[22px] sm:min-h-[340px] lg:min-h-[360px]">
-            <div className="mb-[24px]">
-              <Megaphone
-                strokeWidth={1.5}
-                className="h-[64px] w-[64px] text-[#22D3EE] sm:h-[72px] sm:w-[72px]"
-              />
+          <Link href={routes.marketing} className="block h-full">
+            <div className="min-h-[320px] border border-[#e7e4ec] bg-white p-[22px] sm:min-h-[340px] lg:min-h-[360px]">
+              <div className="mb-[24px]">
+                <Megaphone
+                  strokeWidth={1.5}
+                  className="h-[64px] w-[64px] text-[#22D3EE] sm:h-[72px] sm:w-[72px]"
+                />
+              </div>
+
+              <h3 className="mb-4 text-[20px] tracking-[-0.6px] text-[#0b0d39]">
+                Marketing Platforms
+              </h3>
+
+              <p className="mb-5 text-[14px] leading-[1.8] text-[#22D3EE] sm:text-[15px]">
+                Implement marketing clouds, personalization engines, and customer
+                data platforms
+              </p>
+
+              <p className="text-[13px] leading-[1.85] text-[#555] sm:text-[14px]">
+                We create connected marketing ecosystems that deliver personalized
+                engagement across every digital channel.
+              </p>
             </div>
-
-            <h3 className="mb-4 text-[20px] tracking-[-0.6px] text-[#0b0d39]">
-              Marketing Platforms
-            </h3>
-
-            <p className="mb-5 text-[14px] leading-[1.8] text-[#22D3EE] sm:text-[15px]">
-              Implement marketing clouds, personalization engines, and customer
-              data platforms
-            </p>
-
-            <p className="text-[13px] leading-[1.85] text-[#555] sm:text-[14px]">
-              We create connected marketing ecosystems that deliver personalized
-              engagement across every digital channel.
-            </p>
-          </div>
+          </Link>
         </div>
       </div>
     </section>

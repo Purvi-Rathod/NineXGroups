@@ -8,6 +8,15 @@ import {
   Radar,
   TrendingUp,
 } from "lucide-react";
+import Link from "next/link";
+const routes = {
+  gtm: "/ninexscaleBrand/go-to-market-strategy",
+  marketEntry: "/ninexscaleBrand/market-entry-expansion",
+  expansion: "/ninexscaleBrand/business-expansion-planning",
+  investor: "/ninexscaleBrand/investor-relations",
+  intelligence: "/ninexscaleBrand/competitive-intelligence",
+  revenue: "/ninexscaleBrand/revenue-growth-architecture",
+};
 
 export default function WhatWeDoSection() {
   return (
@@ -59,7 +68,8 @@ export default function WhatWeDoSection() {
           </div>
 
           {/* CARD 1 */}
-          <div className="min-h-[320px] border border-[#e7e4ec] bg-white p-[22px] sm:min-h-[340px] lg:min-h-[360px]">
+          <Link href={routes.gtm} className="block h-full">
+            <div className="min-h-[320px] border border-[#e7e4ec] bg-white p-[22px] sm:min-h-[340px] lg:min-h-[360px]">
             <div className="mb-[24px]">
               <Rocket
                 strokeWidth={1.5}
@@ -81,123 +91,131 @@ export default function WhatWeDoSection() {
               accelerate adoption and revenue growth.
             </p>
           </div>
+          </Link>
 
           {/* CARD 2 */}
-          <div className="min-h-[320px] border border-[#e7e4ec] bg-white p-[22px] sm:min-h-[340px] lg:min-h-[360px]">
-            <div className="mb-[24px]">
-              <Globe2
-                strokeWidth={1.5}
-                className="h-[64px] w-[64px] text-[#8b5cf6] sm:h-[72px] sm:w-[72px]"
-              />
+          <Link href={routes.marketEntry} className="block h-full">
+            <div className="min-h-[320px] border border-[#e7e4ec] bg-white p-[22px] sm:min-h-[340px] lg:min-h-[360px]">
+              <div className="mb-[24px]">
+                <Globe2
+                  strokeWidth={1.5}
+                  className="h-[64px] w-[64px] text-[#8b5cf6] sm:h-[72px] sm:w-[72px]"
+                />
+              </div>
+
+              <h3 className="mb-4 text-[20px] tracking-[-0.6px] text-[#0b0d39]">
+                Market Entry & Expansion
+              </h3>
+
+              <p className="mb-5 text-[14px] leading-[1.8] text-[#7c3aed] sm:text-[15px]">
+                Execute geographic expansion and new market entry strategies
+              </p>
+
+              <p className="text-[13px] leading-[1.85] text-[#555] sm:text-[14px]">
+                We enable organizations to enter and scale in competitive global
+                markets with confidence.
+              </p>
             </div>
-
-            <h3 className="mb-4 text-[20px] tracking-[-0.6px] text-[#0b0d39]">
-              Market Entry & Expansion
-            </h3>
-
-            <p className="mb-5 text-[14px] leading-[1.8] text-[#7c3aed] sm:text-[15px]">
-              Execute geographic expansion and new market entry strategies
-            </p>
-
-            <p className="text-[13px] leading-[1.85] text-[#555] sm:text-[14px]">
-              We enable organizations to enter and scale in competitive global
-              markets with confidence.
-            </p>
-          </div>
-
+          </Link>
           {/* CARD 3 */}
-          <div className="min-h-[320px] border border-[#e7e4ec] bg-white p-[22px] sm:min-h-[340px] lg:min-h-[360px]">
-            <div className="mb-[24px]">
-              <LineChart
-                strokeWidth={1.5}
-                className="h-[64px] w-[64px] text-[#8b5cf6] sm:h-[72px] sm:w-[72px]"
-              />
+          <Link href={routes.gtm} className="block h-full">
+            <div className="min-h-[320px] border border-[#e7e4ec] bg-white p-[22px] sm:min-h-[340px] lg:min-h-[360px]">
+              <div className="mb-[24px]">
+                <LineChart
+                  strokeWidth={1.5}
+                  className="h-[64px] w-[64px] text-[#8b5cf6] sm:h-[72px] sm:w-[72px]"
+                />
+              </div>
+
+              <h3 className="mb-4 text-[20px] tracking-[-0.6px] text-[#0b0d39]">
+                Business Expansion Planning
+              </h3>
+
+              <p className="mb-5 text-[14px] leading-[1.8] text-[#7c3aed] sm:text-[15px]">
+                Scale operations, M&A advisory, and global growth strategies
+              </p>
+
+              <p className="text-[13px] leading-[1.85] text-[#555] sm:text-[14px]">
+                We architect long-term expansion strategies that maximize
+                operational and financial performance.
+              </p>
             </div>
-
-            <h3 className="mb-4 text-[20px] tracking-[-0.6px] text-[#0b0d39]">
-              Business Expansion Planning
-            </h3>
-
-            <p className="mb-5 text-[14px] leading-[1.8] text-[#7c3aed] sm:text-[15px]">
-              Scale operations, M&A advisory, and global growth strategies
-            </p>
-
-            <p className="text-[13px] leading-[1.85] text-[#555] sm:text-[14px]">
-              We architect long-term expansion strategies that maximize
-              operational and financial performance.
-            </p>
-          </div>
-
+          </Link>
           {/* CARD 4 */}
-          <div className="min-h-[320px] border border-[#e7e4ec] bg-white p-[22px] sm:min-h-[340px] lg:min-h-[360px]">
-            <div className="mb-[24px]">
-              <BriefcaseBusiness
-                strokeWidth={1.5}
-                className="h-[64px] w-[64px] text-[#8b5cf6] sm:h-[72px] sm:w-[72px]"
-              />
+          <Link href={routes.investor} className="block h-full">
+            <div className="min-h-[320px] border border-[#e7e4ec] bg-white p-[22px] sm:min-h-[340px] lg:min-h-[360px]">
+              <div className="mb-[24px]">
+                <BriefcaseBusiness
+                  strokeWidth={1.5}
+                  className="h-[64px] w-[64px] text-[#8b5cf6] sm:h-[72px] sm:w-[72px]"
+                />
+              </div>
+
+              <h3 className="mb-4 text-[20px] tracking-[-0.6px] text-[#0b0d39]">
+                Investor Relations
+              </h3>
+
+              <p className="mb-5 text-[14px] leading-[1.8] text-[#7c3aed] sm:text-[15px]">
+                Develop investor materials, financial models, and capital
+                strategies
+              </p>
+
+              <p className="text-[13px] leading-[1.85] text-[#555] sm:text-[14px]">
+                We prepare businesses for fundraising, investor engagement, and
+                strategic capital growth.
+              </p>
             </div>
-
-            <h3 className="mb-4 text-[20px] tracking-[-0.6px] text-[#0b0d39]">
-              Investor Relations
-            </h3>
-
-            <p className="mb-5 text-[14px] leading-[1.8] text-[#7c3aed] sm:text-[15px]">
-              Develop investor materials, financial models, and capital
-              strategies
-            </p>
-
-            <p className="text-[13px] leading-[1.85] text-[#555] sm:text-[14px]">
-              We prepare businesses for fundraising, investor engagement, and
-              strategic capital growth.
-            </p>
-          </div>
-
+          </Link>
           {/* CARD 5 */}
-          <div className="min-h-[320px] border border-[#e7e4ec] bg-white p-[22px] sm:min-h-[340px] lg:min-h-[360px]">
-            <div className="mb-[24px]">
-              <Radar
-                strokeWidth={1.5}
-                className="h-[64px] w-[64px] text-[#8b5cf6] sm:h-[72px] sm:w-[72px]"
-              />
+          <Link href={routes.expansion} className="block h-full">
+            <div className="min-h-[320px] border border-[#e7e4ec] bg-white p-[22px] sm:min-h-[340px] lg:min-h-[360px]">
+              <div className="mb-[24px]">
+                <Radar
+                  strokeWidth={1.5}
+                  className="h-[64px] w-[64px] text-[#8b5cf6] sm:h-[72px] sm:w-[72px]"
+                />
+              </div>
+
+              <h3 className="mb-4 text-[20px] tracking-[-0.6px] text-[#0b0d39]">
+                Competitive Intelligence
+              </h3>
+
+              <p className="mb-5 text-[14px] leading-[1.8] text-[#7c3aed] sm:text-[15px]">
+                Continuous market research, competitor tracking, and strategic
+                positioning
+              </p>
+
+              <p className="text-[13px] leading-[1.85] text-[#555] sm:text-[14px]">
+                We provide actionable insights that strengthen positioning and
+                competitive advantage.
+              </p>
             </div>
-
-            <h3 className="mb-4 text-[20px] tracking-[-0.6px] text-[#0b0d39]">
-              Competitive Intelligence
-            </h3>
-
-            <p className="mb-5 text-[14px] leading-[1.8] text-[#7c3aed] sm:text-[15px]">
-              Continuous market research, competitor tracking, and strategic
-              positioning
-            </p>
-
-            <p className="text-[13px] leading-[1.85] text-[#555] sm:text-[14px]">
-              We provide actionable insights that strengthen positioning and
-              competitive advantage.
-            </p>
-          </div>
+          </Link>
 
           {/* CARD 6 */}
-          <div className="min-h-[320px] border border-[#e7e4ec] bg-white p-[22px] sm:min-h-[340px] lg:min-h-[360px]">
-            <div className="mb-[24px]">
-              <TrendingUp
-                strokeWidth={1.5}
-                className="h-[64px] w-[64px] text-[#8b5cf6] sm:h-[72px] sm:w-[72px]"
-              />
+          <Link href={routes.revenue} className="block h-full">
+            <div className="min-h-[320px] border border-[#e7e4ec] bg-white p-[22px] sm:min-h-[340px] lg:min-h-[360px]">
+              <div className="mb-[24px]">
+                <TrendingUp
+                  strokeWidth={1.5}
+                  className="h-[64px] w-[64px] text-[#8b5cf6] sm:h-[72px] sm:w-[72px]"
+                />
+              </div>
+
+              <h3 className="mb-4 text-[20px] tracking-[-0.6px] text-[#0b0d39]">
+                Revenue Growth Architecture
+              </h3>
+
+              <p className="mb-5 text-[14px] leading-[1.8] text-[#7c3aed] sm:text-[15px]">
+                Design and optimize revenue operations and growth systems
+              </p>
+
+              <p className="text-[13px] leading-[1.85] text-[#555] sm:text-[14px]">
+                We build scalable revenue engines that align operations, sales,
+                and growth initiatives.
+              </p>
             </div>
-
-            <h3 className="mb-4 text-[20px] tracking-[-0.6px] text-[#0b0d39]">
-              Revenue Growth Architecture
-            </h3>
-
-            <p className="mb-5 text-[14px] leading-[1.8] text-[#7c3aed] sm:text-[15px]">
-              Design and optimize revenue operations and growth systems
-            </p>
-
-            <p className="text-[13px] leading-[1.85] text-[#555] sm:text-[14px]">
-              We build scalable revenue engines that align operations, sales,
-              and growth initiatives.
-            </p>
-          </div>
+          </Link>
         </div>
       </div>
     </section>

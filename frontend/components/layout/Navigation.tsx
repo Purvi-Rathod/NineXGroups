@@ -160,32 +160,32 @@ const navigationItems: NavigationItem[] = [
             href: "/ninexdevOpsBrand/cx-systems",
           },
           {
-            label:"ERP Enterprise Applications",
-            href:"/ninexdevOpsBrand/erp-enterprise-applications"
+            label: "ERP Enterprise Applications",
+            href: "/ninexdevOpsBrand/erp-enterprise-applications"
           },
           {
-            label:"Digital Engineering",
-            href:"/ninexdevOpsBrand/digital-engineering"
+            label: "Digital Engineering",
+            href: "/ninexdevOpsBrand/digital-engineering"
           },
           {
-            label:"DevOps & Automation",
-            href:"/ninexdevOpsBrand/devops-automation"
+            label: "DevOps & Automation",
+            href: "/ninexdevOpsBrand/devops-automation"
           },
           {
-            label:"Data Engineering & Analytics",
-            href:"/ninexdevOpsBrand/data-engineering-analytics"
+            label: "Data Engineering & Analytics",
+            href: "/ninexdevOpsBrand/data-engineering-analytics"
           },
           {
-            label:"Custom Software Development",
-            href:"/ninexdevOpsBrand/custom-software-development"
+            label: "Custom Software Development",
+            href: "/ninexdevOpsBrand/custom-software-development"
           },
           {
-            label:"IoT & Edge Computing",
-            href:"/ninexdevOpsBrand/iot-edge-computing"
+            label: "IoT & Edge Computing",
+            href: "/ninexdevOpsBrand/iot-edge-computing"
           },
           {
-            label:"Networks & Digital Workspace",
-            href:"/ninexdevOpsBrand/networks-digital-workspace"
+            label: "Networks & Digital Workspace",
+            href: "/ninexdevOpsBrand/networks-digital-workspace"
           }
         ],
       },
@@ -198,24 +198,23 @@ const navigationItems: NavigationItem[] = [
         children: [
           {
             label: "CRM Implementation",
-            href: "/ninexconnect/crm-implementation",
+            href: "/ninexConnectBrand/crm-implementation",
           },
-          { label: "Sales Automation", href: "/ninexconnect/sales-automation" },
+          {
+            label: "Sales Automation",
+            href: "/ninexConnectBrand/sales-automation",
+          },
           {
             label: "Customer Journey Design",
-            href: "/ninexconnect/customer-journey-design",
+            href: "/ninexConnectBrand/customer-journey-design",
           },
           {
             label: "Contact Center Solutions",
-            href: "/ninexconnect/contact-center-solutions",
+            href: "/ninexConnectBrand/contact-center-solutions",
           },
           {
-            label: "WhatsApp Business",
-            href: "/ninexconnect/whatsapp-business",
-          },
-          {
-            label: "Customer Data Platforms",
-            href: "/ninexconnect/customer-data-platforms",
+            label: "Marketing Platforms",
+            href: "/ninexConnectBrand/marketing-platforms",
           },
         ],
       },
@@ -228,27 +227,27 @@ const navigationItems: NavigationItem[] = [
         children: [
           {
             label: "Go-To-Market Strategy",
-            href: "/ninexscale/go-to-market-strategy",
+            href: "/ninexscaleBrand/go-to-market-strategy",
           },
           {
-            label: "Market Entry Consulting",
-            href: "/ninexscale/market-entry-consulting",
+            label: "Market Entry & Expansion",
+            href: "/ninexscaleBrand/market-entry-expansion",
           },
           {
-            label: "Business Expansion",
-            href: "/ninexscale/business-expansion",
+            label: "Business Expansion Planning",
+            href: "/ninexscaleBrand/business-expansion-planning",
           },
           {
-            label: "Investor-Ready Decks",
-            href: "/ninexscale/investor-ready-decks",
+            label: "Investor Relations",
+            href: "/ninexscaleBrand/investor-relations",
           },
           {
             label: "Competitive Intelligence",
-            href: "/ninexscale/competitive-intelligence",
+            href: "/ninexscaleBrand/competitive-intelligence",
           },
           {
             label: "Revenue Growth Architecture",
-            href: "/ninexscale/revenue-growth-architecture",
+            href: "/ninexscaleBrand/revenue-growth-architecture",
           },
         ],
       },
