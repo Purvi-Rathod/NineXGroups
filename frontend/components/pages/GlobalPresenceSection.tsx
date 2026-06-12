@@ -38,9 +38,10 @@ export default function GlobalPresenceSection({
     <section className="bg-white py-14 lg:py-20">
       <div className="mx-auto max-w-[1320px] px-6 md:px-10 lg:px-16">
         <div className="grid items-center gap-16 lg:grid-cols-[42%_58%]">
+
           {/* LEFT */}
           <div>
-            <p className="mb-4 text-[10px] font-medium uppercase tracking-[0.28em] text-blue-600">
+            <p className="mb-4 text-[10px] font-semibold uppercase tracking-[0.28em] text-blue-600">
               {eyebrow}
             </p>
 
@@ -51,7 +52,7 @@ export default function GlobalPresenceSection({
             <div className="mt-10 grid grid-cols-2 gap-x-10 gap-y-6 md:grid-cols-4">
               {regions.map((region) => (
                 <div key={region.name}>
-                  <h3 className="text-[14px] font-medium text-[#0A1633]">
+                  <h3 className="text-[14px] font-medium tracking-[-0.01em] text-[#0A1633]">
                     {region.name}
                   </h3>
 
@@ -60,7 +61,7 @@ export default function GlobalPresenceSection({
               ))}
             </div>
 
-            <p className="mt-10 max-w-[420px] text-[13px] leading-7 text-slate-600">
+            <p className="mt-10 max-w-[420px] text-[13px] font-normal leading-7 text-slate-600">
               {description}
             </p>
           </div>
@@ -68,6 +69,7 @@ export default function GlobalPresenceSection({
           {/* RIGHT MAP */}
           <div className="relative">
             <div className="relative h-[280px] md:h-[340px] lg:h-[380px]">
+
               {/* World Map SVG */}
               <svg
                 viewBox="0 0 1000 500"
@@ -136,6 +138,7 @@ export default function GlobalPresenceSection({
               ))}
             </div>
           </div>
+
         </div>
       </div>
     </section>

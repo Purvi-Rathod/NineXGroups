@@ -26,6 +26,7 @@ export default function WhyChooseUsSection({
     <section className="bg-white py-10 lg:py-14">
       <div className="mx-auto w-full">
         <div className="grid items-start gap-10 lg:grid-cols-[50%_36%]">
+
           {/* IMAGE */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -39,6 +40,7 @@ export default function WhyChooseUsSection({
                   src={image}
                   alt={title}
                   fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover object-center"
                 />
               </div>
@@ -54,12 +56,12 @@ export default function WhyChooseUsSection({
             className="pt-1"
           >
             {eyebrow && (
-              <p className="mb-2 text-[10px] font-medium uppercase tracking-[0.28em] text-blue-600">
+              <p className="mb-3 text-[12px] sm:text-[13px] font-semibold uppercase tracking-[0.14em] text-[#1959FA]">
                 {eyebrow}
               </p>
             )}
 
-            <h2 className="max-w-[420px] text-[22px] font-medium leading-[1.15] tracking-[-0.03em] text-[#0A1633] md:text-[24px] lg:text-[26px]">
+            <h2 className="max-w-[520px] text-[32px] font-medium leading-[1.08] tracking-[-0.03em] text-[#0B1A3A] md:text-[40px] lg:text-[48px]">
               {title}
             </h2>
 
@@ -68,17 +70,17 @@ export default function WhyChooseUsSection({
                 <div key={index}>
                   <div className="flex items-start gap-3">
                     <CheckCircle2
-                      size={14}
+                      size={16}
                       strokeWidth={1.8}
-                      className="mt-[2px] shrink-0 text-blue-500"
+                      className="mt-[3px] shrink-0 text-[#1959FA]"
                     />
 
                     <div>
-                      <h3 className="text-[12px] font-semibold text-[#0A1633]">
+                      <h3 className="text-[16px] font-semibold leading-[1.3] tracking-[-0.01em] text-[#0B1A3A]">
                         {feature.title}
                       </h3>
 
-                      <p className="mt-1 text-[12px] leading-[1.7] text-slate-500">
+                      <p className="mt-1.5 text-[14px] font-normal leading-[1.65] tracking-[-0.01em] text-[#0B1A3A]/70">
                         {feature.description}
                       </p>
                     </div>
@@ -87,6 +89,7 @@ export default function WhyChooseUsSection({
               ))}
             </div>
           </motion.div>
+
         </div>
       </div>
     </section>

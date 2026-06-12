@@ -11,7 +11,7 @@ const ACCENT = "#1E4DF5";
 const QUOTE = "#98A1B4";
 const RULE = "#D8DEEA";
 
-const ORBIT_DUR = 44; // seconds, badges revolution
+const ORBIT_DUR = 44;
 const DOTS_DUR = 62;
 const RING_DUR = 120;
 

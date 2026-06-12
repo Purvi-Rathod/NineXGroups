@@ -12,7 +12,7 @@ const LINE = "#D5DEF2";
 const RING = "#D9E1F1";
 const BODY = "#5C6B86";
 
-const STEP = 0.7; // delay between milestones revealing (one section fully opens, then the next)
+const STEP = 0.7;
 
 type IconProps = SVGProps<SVGSVGElement>;
 
@@ -140,16 +140,16 @@ export default function JourneySection() {
         {/* ---------- Header ---------- */}
         <div className="text-center">
           <h1
-              className="
-                text-[36px]
-                md:text-[44px]
-                lg:text-[54px]
-                font-medium
-                leading-[0.92]
-                tracking-[-0.045em]
-                text-[#0A1633]
-              "
-            >
+            className="
+              text-[36px]
+              md:text-[44px]
+              lg:text-[54px]
+              font-medium
+              leading-[0.92]
+              tracking-[-0.045em]
+              text-[#0A1633]
+            "
+          >
             Our Journey So Far
           </h1>
           <p className="mx-auto mt-3 max-w-[760px] text-[13px] leading-[1.6] text-[#5C6B86] lg:text-[14px]">

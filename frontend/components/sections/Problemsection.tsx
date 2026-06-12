@@ -178,7 +178,7 @@ function ProblemCard({ item, index }: { item: Problem; index: number }) {
         </h3>
       </div>
 
-      <p className=" text-[14px] leading-[1.7] text-[#51607A] lg:text-[15.5px] pl-10">
+      <p className="mt-4 text-[14px] leading-[1.7] text-[#51607A] lg:text-[15.5px] pl-10">
         {item.body}
       </p>
 
@@ -213,8 +213,8 @@ export default function ProblemSection() {
                 tracking-[-0.045em]
                 text-[#0A1633]
               "
-            >              
-                The Problem We Exist To Solve
+            >
+              The Problem We Exist To Solve
             </h1>
             <p className="mt-3.5 max-w-[700px] text-[15px] leading-[1.55] text-[#5B6B86] lg:mt-4 lg:text-[18px]">
               The traditional way enterprises buy transformation is broken in

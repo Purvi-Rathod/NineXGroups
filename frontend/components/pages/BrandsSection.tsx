@@ -63,11 +63,11 @@ export default function BrandsSection({
       <div className="mx-auto max-w-[1300px] px-6 md:px-10 lg:px-16">
         {/* Heading */}
         <div className="text-center">
-          <p className="mb-3 text-[10px] font-medium uppercase tracking-[0.28em] text-blue-600">
+          <p className="mb-3 text-[12px] sm:text-[13px] font-semibold uppercase tracking-[0.14em] text-[#1959FA]">
             {eyebrow}
           </p>
 
-          <h2 className="text-[26px] font-medium leading-[1.15] tracking-[-0.03em] text-[#0A1633] md:text-[32px] lg:text-[36px]">
+          <h2 className="text-[26px] font-medium leading-[1.15] tracking-[-0.03em] text-[#0B1A3A] md:text-[32px] lg:text-[36px]">
             {title}
             <br />
             {subtitle}
@@ -93,8 +93,8 @@ export default function BrandsSection({
                   transition-all
                   duration-500
                   hover:-translate-y-2
-                  hover:border-blue-200
-                  hover:shadow-[0_20px_60px_rgba(15,23,42,0.06)]
+                  hover:border-[#1959FA]/25
+                  hover:shadow-[0_20px_60px_rgba(11,26,58,0.06)]
                   md:px-8
                   md:py-10
                 "
@@ -104,11 +104,10 @@ export default function BrandsSection({
                     size={28}
                     strokeWidth={1.8}
                     className="
-                      text-blue-500
+                      text-[#1959FA]
                       transition-all
                       duration-500
                       group-hover:scale-110
-                      group-hover:text-blue-600
                     "
                   />
                 </div>
@@ -117,20 +116,22 @@ export default function BrandsSection({
                   className="
                     text-[18px]
                     font-semibold
-                    text-[#0A1633]
+                    leading-[1.3]
+                    tracking-[-0.01em]
+                    text-[#0B1A3A]
                     transition-colors
                     duration-300
-                    group-hover:text-blue-600
+                    group-hover:text-[#1959FA]
                   "
                 >
                   {brand.name}
                 </h3>
 
-                <p className="mt-2 text-[12px] font-medium text-slate-500">
+                <p className="mt-2 text-[12px] font-medium uppercase tracking-[0.06em] text-[#1959FA]/80">
                   {brand.subtitle}
                 </p>
 
-                <p className="mt-5 text-[13px] leading-6 text-slate-600">
+                <p className="mt-5 text-[14px] leading-[1.65] tracking-[-0.01em] text-[#0B1A3A]/70">
                   {brand.description}
                 </p>
               </div>
@@ -139,30 +140,28 @@ export default function BrandsSection({
         </div>
 
         {/* Information Banner */}
-        <div className="mt-8 border border-[#DCE8FF] bg-[#F8FBFF] px-5 py-4 md:px-6 md:py-5">
-          <div className="flex shrink-0 items-start pt-[2px]">
-            {/* Custom Icon */}
-            <div className="flex shrink-0 items-start pt-[2px]">
-              <div className="flex h-6 w-6 items-center justify-center rounded-full border border-[#7AA8FF]">
-                <svg
-                  width="10"
-                  height="10"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="#7AA8FF"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M12 2v20" />
-                  <path d="M2 12h20" />
-                  <path d="m4.93 4.93 14.14 14.14" />
-                  <path d="m19.07 4.93-14.14 14.14" />
-                </svg>
-              </div>
+        <div className="mt-8 border border-[#1959FA]/15 bg-[#E9F7FF]/50 px-5 py-4 md:px-6 md:py-5">
+          <div className="flex items-start gap-3">
+            {/* Icon */}
+            <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-[#1959FA]/40">
+              <svg
+                width="10"
+                height="10"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#1959FA"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M12 2v20" />
+                <path d="M2 12h20" />
+                <path d="m4.93 4.93 14.14 14.14" />
+                <path d="m19.07 4.93-14.14 14.14" />
+              </svg>
             </div>
 
-            <p className="text-[13px] leading-6 text-slate-600">
+            <p className="text-[14px] leading-[1.65] tracking-[-0.01em] text-[#0B1A3A]/70">
               Alongside these, the group continues to expand its capabilities
               across AI, applied software, and industry-specific solutions as
               our clients&apos; needs grow.

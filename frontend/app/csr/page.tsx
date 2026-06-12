@@ -4,18 +4,21 @@ import { motion, useReducedMotion } from "framer-motion";
 import type { ReactNode, SVGProps } from "react";
 
 /* ------------------------------------------------------------------ */
-/*  Tokens                                                            */
+/*  Tokens — NineXGroup brand + CSR pillar accents                    */
 /* ------------------------------------------------------------------ */
-const INK = "#0E1A3A";
-const BODY = "#586079";
-const MUTE = "#8A93A8";
+const INK = "#0B1A3A";
+const BODY = "rgba(11,26,58,0.70)";
+const MUTE = "rgba(11,26,58,0.45)";
 
 const C = {
-  people: "#2348E6",
-  communities: "#0E9C8A",
-  environment: "#1F9D55",
-  governance: "#6B4FD6",
+  people: "#1959FA", // brand blue
+  communities: "#0E9C8A", // CSR accent — teal
+  environment: "#1F9D55", // CSR accent — green
+  governance: "#6B4FD6", // CSR accent — purple
 };
+
+/** Brand-blue → teal sustainability gradient used for highlights/CTAs on this page */
+const CSR_GRADIENT = "linear-gradient(120deg,#1959FA,#0E9C8A)";
 
 /* default online imagery — swap via props */
 const IMG = {
@@ -122,6 +125,33 @@ function Photo({ src, className }: { src: string; className?: string }) {
   );
 }
 
+function Pill({
+  text,
+  color,
+  light = false,
+}: {
+  text: string;
+  color: string;
+  light?: boolean;
+}) {
+  return (
+    <span
+      className={`inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-[12px] font-semibold uppercase tracking-[0.14em] ${
+        light
+          ? "border border-white/25 bg-white/10 text-white/90 backdrop-blur-sm"
+          : "border border-[#E2E8F6] bg-white"
+      }`}
+      style={light ? undefined : { color }}
+    >
+      <span
+        className="h-1.5 w-1.5 rounded-full"
+        style={{ background: light ? "#7FE3B0" : color }}
+      />{" "}
+      {text}
+    </span>
+  );
+}
+
 type Bullet = { lead: string; rest: string };
 function Checklist({ items, color }: { items: Bullet[]; color: string }) {
   return (
@@ -142,10 +172,10 @@ function Checklist({ items, color }: { items: Bullet[]; color: string }) {
             <Check className="h-[15px] w-[15px]" style={{ color }} />
           </span>
           <p
-            className="self-center text-[13.5px] leading-[1.6]"
+            className="self-center text-[14px] sm:text-[15px] leading-[1.65] tracking-[-0.01em]"
             style={{ color: BODY }}
           >
-            <span className="font-bold" style={{ color: INK }}>
+            <span className="font-semibold" style={{ color: INK }}>
               {b.lead}
             </span>{" "}
             {b.rest}
@@ -284,20 +314,20 @@ function Detail({
   const content = (
     <div className="relative px-6 py-12 lg:px-16 lg:py-16">
       <span
-        className="pointer-events-none absolute right-6 top-8 select-none text-[92px] font-black leading-none tracking-tight lg:right-12"
+        className="pointer-events-none absolute right-6 top-8 select-none text-[92px] font-semibold leading-none tracking-tight lg:right-12"
         style={{ color: `${color}12` }}
       >
         {n}
       </span>
       <div className="relative max-w-[560px]">
         <span
-          className="inline-flex items-center rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-[0.16em]"
+          className="inline-flex items-center rounded-full px-3 py-1 text-[12px] font-semibold uppercase tracking-[0.14em]"
           style={{ background: `${color}14`, color }}
         >
           {title.replace("Our ", "")}
         </span>
         <h2
-          className="mt-4 text-[30px] font-bold tracking-[-0.02em] sm:text-[34px]"
+          className="mt-4 text-[28px] font-semibold leading-[1.12] tracking-[-0.02em] sm:text-[32px]"
           style={{ color: INK }}
         >
           {title}
@@ -339,7 +369,7 @@ export default function CsrSection() {
   const im = IMG;
 
   return (
-    <section className="bg-white text-[15px]">
+    <section className="bg-white">
       {/* ===================== Header ===================== */}
       <div className="mx-auto max-w-[1300px]">
         <div className="grid lg:grid-cols-2">
@@ -348,27 +378,16 @@ export default function CsrSection() {
               className="pointer-events-none absolute -left-24 top-8 h-64 w-64 rounded-full opacity-50 blur-3xl"
               style={{
                 background:
-                  "radial-gradient(circle, rgba(35,72,230,0.16), transparent 70%)",
+                  "radial-gradient(circle, rgba(25,89,250,0.16), transparent 70%)",
               }}
             />
             <div className="relative">
-              <span
-                className="inline-flex items-center gap-2 rounded-full border border-[#E2E8F6] bg-white px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-[0.18em]"
-                style={{ color: C.people }}
-              >
-                <span
-                  className="h-1.5 w-1.5 rounded-full"
-                  style={{ background: C.people }}
-                />{" "}
-                CSR&amp; Sustainability
-              </span>
-              <h1 className="mt-6 text-[46px] font-medium leading-[0.92] tracking-[-0.045em] text-[#0A1633] md:text-[54px] lg:text-[64px]">
+              <Pill text="CSR & Sustainability" color={C.people} />
+              <h1 className="mt-6 text-[32px] font-medium leading-[1.06] tracking-[-0.03em] text-[#0B1A3A] sm:text-[40px] md:text-[48px] lg:text-[56px]">
                 Building a company that&apos;s{" "}
                 <span
                   className="bg-clip-text text-transparent"
-                  style={{
-                    backgroundImage: "linear-gradient(120deg,#2348E6,#0E9C8A)",
-                  }}
+                  style={{ backgroundImage: CSR_GRADIENT }}
                 >
                   good for everyone
                 </span>{" "}
@@ -391,19 +410,19 @@ export default function CsrSection() {
                 ))}
               </div>
               <p
-                className="mt-8 text-[15px] font-semibold"
+                className="mt-8 text-[15px] sm:text-[16px] font-semibold tracking-[-0.01em]"
                 style={{ color: INK }}
               >
                 Built responsibly from day one.
               </p>
-              <p className="mt-3 text-[12.5px]" style={{ color: MUTE }}>
+              <p className="mt-3 text-[13px]" style={{ color: MUTE }}>
                 ninex-group.com&nbsp;&nbsp;|&nbsp;&nbsp;Founded 2024
               </p>
             </div>
           </Reveal>
 
           <Reveal>
-            <div className="relative h-[300px] w-full overflow-hidden rounded-bl-[40px] sm:h-[360px] lg:h-[480px]">
+            <div className="relative h-[260px] w-full overflow-hidden rounded-bl-[40px] sm:h-[360px] lg:h-[480px]">
               <img
                 src={im.building}
                 alt=""
@@ -414,14 +433,14 @@ export default function CsrSection() {
                 className="absolute inset-0"
                 style={{
                   background:
-                    "linear-gradient(160deg, rgba(10,22,51,0) 45%, rgba(10,22,51,0.4))",
+                    "linear-gradient(160deg, rgba(10,22,40,0) 45%, rgba(10,22,40,0.4))",
                 }}
               />
               <div className="absolute bottom-5 left-5 rounded-2xl border border-white/25 bg-white/15 px-4 py-3 backdrop-blur-md">
-                <p className="text-[10.5px] font-semibold uppercase tracking-[0.15em] text-white/80">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-white/80">
                   Responsible by design
                 </p>
-                <p className="text-[15px] font-bold text-white">
+                <p className="text-[15px] font-semibold text-white">
                   People · Planet · Governance
                 </p>
               </div>
@@ -441,16 +460,7 @@ export default function CsrSection() {
         />
         <div className="relative mx-auto max-w-[1300px] px-6 lg:px-8">
           <Reveal>
-            <span
-              className="inline-flex items-center gap-2 rounded-full border border-[#E2E8F6] bg-white px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-[0.18em]"
-              style={{ color: C.people }}
-            >
-              <span
-                className="h-1.5 w-1.5 rounded-full"
-                style={{ background: C.people }}
-              />{" "}
-              Our Commitment
-            </span>
+            <Pill text="Our Commitment" color={C.people} />
           </Reveal>
           <div className="mt-7 grid gap-10 lg:grid-cols-[1.05fr_0.95fr]">
             <Reveal>
@@ -458,18 +468,15 @@ export default function CsrSection() {
                 <span
                   className="absolute left-0 top-1 h-[calc(100%-0.5rem)] w-[3px] rounded-full"
                   style={{
-                    background: "linear-gradient(180deg,#2348E6,#0E9C8A)",
+                    background: "linear-gradient(180deg,#1959FA,#0E9C8A)",
                   }}
                 />
-                <h2 className="text-[30px] font-medium leading-[1.05] tracking-[-0.04em] text-[#0A1633] md:text-[38px] lg:text-[44px]">
+                <h2 className="text-[26px] font-medium leading-[1.12] tracking-[-0.03em] text-[#0B1A3A] sm:text-[32px] lg:text-[38px]">
                   We are a young company. We are not claiming a decade of
                   impact. We are{" "}
                   <span
                     className="bg-clip-text text-transparent"
-                    style={{
-                      backgroundImage:
-                        "linear-gradient(120deg,#2348E6,#0E9C8A)",
-                    }}
+                    style={{ backgroundImage: CSR_GRADIENT }}
                   >
                     building responsibility
                   </span>{" "}
@@ -479,7 +486,7 @@ export default function CsrSection() {
             </Reveal>
             <Reveal delay={0.08}>
               <p
-                className="self-center text-[14px] leading-[1.85]"
+                className="self-center text-[14px] sm:text-[15px] leading-[1.75] tracking-[-0.01em]"
                 style={{ color: BODY }}
               >
                 We started NineXGroup believing a good company should create
@@ -504,7 +511,7 @@ export default function CsrSection() {
             return (
               <motion.div
                 key={p.title}
-                className="group relative overflow-hidden rounded-2xl border border-[#ECEFF6] bg-white p-6 transition-shadow duration-300 hover:shadow-[0_24px_50px_-26px_rgba(20,40,120,0.25)]"
+                className="group relative overflow-hidden rounded-2xl border border-[#ECEFF6] bg-white p-6 transition-shadow duration-300 hover:shadow-[0_24px_50px_-26px_rgba(11,26,58,0.25)]"
                 initial={{ opacity: 0, y: 22 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
@@ -529,13 +536,13 @@ export default function CsrSection() {
                   <Icon className="h-6 w-6" />
                 </div>
                 <h3
-                  className="mt-5 text-[13px] font-bold uppercase tracking-[0.12em]"
+                  className="mt-5 text-[13px] font-semibold uppercase tracking-[0.14em]"
                   style={{ color: p.color }}
                 >
                   {p.title}
                 </h3>
                 <p
-                  className="mt-2.5 text-[12.5px] leading-[1.6]"
+                  className="mt-2.5 text-[14px] leading-[1.65] tracking-[-0.01em]"
                   style={{ color: BODY }}
                 >
                   {p.body}
@@ -597,20 +604,17 @@ export default function CsrSection() {
               "linear-gradient(100deg, rgba(15,42,32,0.95), rgba(18,54,40,0.78))",
           }}
         />
-        <Reveal className="relative mx-auto max-w-[1300px] px-6 py-20 lg:px-8">
+        <Reveal className="relative mx-auto max-w-[1300px] px-6 py-16 lg:px-8 lg:py-20">
           <div className="grid gap-8 lg:grid-cols-[1fr_1fr]">
             <div>
-              <span className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-[0.18em] text-white/90 backdrop-blur-sm">
-                <span className="h-1.5 w-1.5 rounded-full bg-[#7FE3B0]" />{" "}
-                Honest Progress
-              </span>
-              <h2 className="mt-6 text-[34px] font-medium leading-[0.96] tracking-[-0.04em] text-white md:text-[44px] lg:text-[52px]">
+              <Pill text="Honest Progress" color={C.environment} light />
+              <h2 className="mt-6 text-[28px] font-medium leading-[1.12] tracking-[-0.03em] text-white sm:text-[36px] lg:text-[44px]">
                 We would rather under-promise and show progress than publish
                 targets we can&apos;t hit.
               </h2>
             </div>
             <div
-              className="space-y-4 self-center text-[14px] leading-[1.8]"
+              className="space-y-4 self-center text-[14px] sm:text-[15px] leading-[1.75] tracking-[-0.01em]"
               style={{ color: "#CFE0D6" }}
             >
               <p>
@@ -637,7 +641,7 @@ export default function CsrSection() {
               className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full opacity-50 blur-3xl"
               style={{
                 background:
-                  "radial-gradient(circle, rgba(35,72,230,0.14), transparent 70%)",
+                  "radial-gradient(circle, rgba(25,89,250,0.14), transparent 70%)",
               }}
             />
             <div className="relative grid items-center gap-10 lg:grid-cols-[170px_1fr_330px]">
@@ -654,14 +658,12 @@ export default function CsrSection() {
                   className="relative h-[160px] w-[160px] rounded-[22px] ring-1 ring-black/5"
                 />
               </div>
-              <h2 className="text-[28px] font-medium leading-[1.0] tracking-[-0.04em] text-[#0A1633] md:text-[34px] lg:text-[40px]">
+              <h2 className="text-[24px] font-medium leading-[1.15] tracking-[-0.03em] text-[#0B1A3A] sm:text-[30px] lg:text-[36px]">
                 The company we&apos;re building is measured not only by what it
                 creates, but{" "}
                 <span
                   className="bg-clip-text text-transparent"
-                  style={{
-                    backgroundImage: "linear-gradient(120deg,#2348E6,#0E9C8A)",
-                  }}
+                  style={{ backgroundImage: CSR_GRADIENT }}
                 >
                   by how it creates it.
                 </span>
@@ -670,12 +672,12 @@ export default function CsrSection() {
                 <div className="flex items-start gap-4">
                   <div
                     className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl"
-                    style={{ background: "#EEF2FB", color: C.people }}
+                    style={{ background: "#E9F7FF", color: C.people }}
                   >
                     <Book className="h-6 w-6" />
                   </div>
                   <p
-                    className="text-[13px] leading-[1.6]"
+                    className="text-[14px] leading-[1.65] tracking-[-0.01em]"
                     style={{ color: BODY }}
                   >
                     This is the kind of company we are trying to build. To
@@ -683,11 +685,9 @@ export default function CsrSection() {
                   </p>
                 </div>
                 <a
-                  href="#"
+                  href="/values"
                   className="group mt-4 inline-flex w-full items-center justify-between gap-2 rounded-xl px-4 py-2.5 text-[13px] font-semibold text-white transition-transform duration-200 hover:scale-[1.02]"
-                  style={{
-                    background: "linear-gradient(120deg,#2348E6,#0E9C8A)",
-                  }}
+                  style={{ background: CSR_GRADIENT }}
                 >
                   Read Our Values &amp; Culture
                   <Arrow className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />

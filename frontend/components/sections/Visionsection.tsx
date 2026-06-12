@@ -194,7 +194,7 @@ const reveal = (delay = 0) => ({
 export default function VisionSection() {
   return (
     <section className="overflow-hidden bg-gradient-to-br from-[#FCFDFF] via-white to-[#F2F5FC] px-5 py-16 sm:px-8 lg:px-12 lg:py-20">
-      <div className="mx-auto max-w-[1340px]">
+      <div className="mx-auto max-w-[1300px]">
         {/* ---------- top: text + hero ---------- */}
         <div className="grid items-center gap-12 lg:grid-cols-[1fr_1.05fr] lg:gap-8">
           {/* left */}
