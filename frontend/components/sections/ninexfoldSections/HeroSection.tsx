@@ -4,7 +4,7 @@ import { motion, useReducedMotion } from "framer-motion";
 
 const easeOut = [0.16, 1, 0.3, 1] as const;
 
-/** Subtle lift for sans UI copy; headline serif stays clean (reference-style). */
+/** Subtle lift for headline copy. */
 const headlineShadow =
   "0 1px 0 rgba(255,255,255,0.85), 0 10px 24px rgba(11,27,63,0.06)";
 
@@ -62,7 +62,7 @@ export default function HeroSection() {
       <div className="section-container">
         <div className="mt-6 [perspective:1100px] [perspective-origin:50%_0%] [transform-style:preserve-3d] md:mt-8">
           <motion.h1
-            className="font-sans text-4xl font-medium leading-[1.08] tracking-[-0.03em] text-[#1a1a1a] sm:text-5xl md:text-6xl lg:text-[3.5rem] lg:leading-[1.04] [transform-style:preserve-3d]"
+            className="text-4xl font-medium leading-[1.08] tracking-[-0.03em] text-[#1a1a1a] sm:text-5xl md:text-6xl lg:text-[3.5rem] lg:leading-[1.04] [transform-style:preserve-3d]"
             variants={headlineGroup}
             initial="hidden"
             animate="show"
@@ -91,7 +91,7 @@ export default function HeroSection() {
             animate="show"
           >
             <div className="md:col-span-4">
-              <p className="font-canela italic text-[15px] leading-snug tracking-[0] text-[#1a1a1a] sm:text-base">
+              <p className="text-[15px] font-medium leading-snug tracking-[-0.01em] text-[#1a1a1a] sm:text-base">
                 Built for intelligent growth in the next era.
               </p>
               <div
@@ -99,7 +99,7 @@ export default function HeroSection() {
                 aria-hidden
               />
             </div>
-            <p className="font-canela italic text-left text-base leading-relaxed text-[#444444] md:col-span-8 md:text-[17px] md:leading-[1.7]">
+            <p className="text-left text-base leading-relaxed tracking-[-0.01em] text-[#444444] md:col-span-8 md:text-[17px] md:leading-[1.7]">
               We combine strategy, technology, and execution to help businesses grow
               faster, smarter, and stronger across markets and industries.
             </p>

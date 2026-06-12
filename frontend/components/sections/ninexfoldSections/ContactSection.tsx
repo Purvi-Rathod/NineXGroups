@@ -32,13 +32,13 @@ export default function ContactSection() {
 
             <SectionContainer className="relative z-10 flex justify-center">
             <div className="w-full max-w-xl text-center text-white">
-                <p className="text-[14px] sm:text-[15px] md:text-[16px] font-medium uppercase tracking-[0.12em] text-[13px] sm:text-[14px] text-white mb-4 [text-shadow:0_1px_12px_rgba(0,0,0,0.65)]">
+                <p className="text-[13px] sm:text-[14px] font-medium uppercase tracking-[0.12em] text-white mb-4 [text-shadow:0_1px_12px_rgba(0,0,0,0.65)]">
                     Consultancy
                 </p>
 
-                <h1 className="text-[28px] sm:text-[32px] lg:text-[40px] font-semibold tracking-[-0.02em] leading-[1.1] mb-4 text-white [text-shadow:0_2px_20px_rgba(0,0,0,0.55)]">
+                <h2 className="text-[28px] sm:text-[32px] lg:text-[40px] font-semibold tracking-[-0.02em] leading-[1.1] mb-4 text-white [text-shadow:0_2px_20px_rgba(0,0,0,0.55)]">
                     Strategy, delivery, and a single team alongside yours.
-                </h1>
+                </h2>
 
                 <p className="text-[15px] sm:text-[16px] md:text-[17px] leading-[1.65] tracking-[-0.01em] mb-8 max-w-md mx-auto text-zinc-100 [text-shadow:0_1px_14px_rgba(0,0,0,0.7)]">
                     Tell us what you are trying to change. We will respond with a clear next step—whether that is a

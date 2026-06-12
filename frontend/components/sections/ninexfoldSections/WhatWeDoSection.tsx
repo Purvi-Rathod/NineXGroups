@@ -178,39 +178,13 @@ const WhatWeDo: React.FC = () => {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap');
-
-        *, *::before, *::after {
-          box-sizing: border-box;
-          margin: 0;
-          padding: 0;
-        }
-
-        :root {
-          --bg: #ffffff;
-          --text: #0a0a0a;
-          --text-muted: #6b6b6b;
-          --border: rgba(0,0,0,0.10);
-          --border-hover: rgba(0,0,0,0.22);
-          --surface: #f5f4f1;
-          --card-bg: #0d0d0d;
-          --btn-bg: #0a0a0a;
-          --btn-text: #ffffff;
-        }
-
-        body {
-          font-family: var(--font-gt-america);
-          background: var(--bg);
-          color: var(--text);
-          min-height: 100vh;
-          padding: 0;
-        }
-
         /* ── Section wrapper ── */
         .wwd {
           max-width: 1280px;
           margin: 0 auto;
           padding: 40px 96px 100px;
+          background: #ffffff;
+          color: #0a0a0a;
         }
 
         /* ── Header ── */
@@ -223,10 +197,9 @@ const WhatWeDo: React.FC = () => {
         }
 
         .wwd__title {
-          font-family: var(--font-gt-america);
           font-size: clamp(3rem, 5vw, 4.5rem);
           font-weight: 500;
-          color: var(--text);
+          color: #0a0a0a;
           line-height: 1.04;
           letter-spacing: -0.03em;
           font-style: normal;
@@ -234,11 +207,10 @@ const WhatWeDo: React.FC = () => {
 
         .wwd__subtitle {
           max-width: 520px;
-          font-family: var(--font-canela-italic);
           font-size: 16px;
-          font-style: italic;
+          font-style: normal;
           font-weight: 400;
-          color: var(--text-muted);
+          color: #6b6b6b;
           line-height: 1.7;
           padding-top: 6px;
         }
@@ -253,34 +225,32 @@ const WhatWeDo: React.FC = () => {
         }
 
         .wwd__filters button {
-          font-family: var(--font-gt-america);
           font-size: 12px;
           font-weight: 400;
           padding: 6px 18px;
           border-radius: 100px;
-          border: 1px solid var(--border);
+          border: 1px solid rgba(0,0,0,0.10);
           background: transparent;
-          color: var(--text-muted);
+          color: #6b6b6b;
           cursor: pointer;
           transition: all 0.18s ease;
           letter-spacing: 0.02em;
         }
 
         .wwd__filters button:hover {
-          border-color: var(--border-hover);
-          color: var(--text);
+          border-color: rgba(0,0,0,0.22);
+          color: #0a0a0a;
         }
 
         .wwd__filters button.active {
-          background: var(--btn-bg);
-          color: var(--btn-text);
-          border-color: var(--btn-bg);
+          background: #0a0a0a;
+          color: #ffffff;
+          border-color: #0a0a0a;
         }
 
         .wwd__count-label {
-          font-family: var(--font-gt-america);
           font-size: 12px;
-          color: var(--text-muted);
+          color: #6b6b6b;
           margin-left: 8px;
         }
 
@@ -300,7 +270,7 @@ const WhatWeDo: React.FC = () => {
         /* ── Card ── */
         .card {
           flex: 0 0 290px;
-          background: var(--card-bg);
+          background: #0d0d0d;
           border-radius: 0;
           padding: 28px 24px 30px;
           display: flex;
@@ -323,7 +293,6 @@ const WhatWeDo: React.FC = () => {
         }
 
         .card__title {
-          font-family: var(--font-gt-america);
           font-size: 1.15rem;
           font-weight: 600;
           color: #ffffff;
@@ -333,7 +302,6 @@ const WhatWeDo: React.FC = () => {
         }
 
         .card__tag {
-          font-family: var(--font-gt-america);
           font-size: 9.5px;
           font-weight: 500;
           padding: 3px 9px;
@@ -390,7 +358,6 @@ const WhatWeDo: React.FC = () => {
 
         /* ── CAGR badge ── */
         .card__cagr {
-          font-family: var(--font-gt-america);
           text-align: center;
           font-size: 10px;
           color: rgba(255,255,255,0.32);
@@ -406,9 +373,8 @@ const WhatWeDo: React.FC = () => {
 
         /* ── Desc ── */
         .card__desc {
-          font-family: var(--font-canela-italic);
           font-size: 12.5px;
-          font-style: italic;
+          font-style: normal;
           color: rgba(255,255,255,0.44);
           line-height: 1.7;
           margin-bottom: 16px;
@@ -416,7 +382,6 @@ const WhatWeDo: React.FC = () => {
 
         /* ── Solutions ── */
         .card__sols {
-          font-family: var(--font-gt-america);
           list-style: none;
           border-top: 1px solid rgba(255,255,255,0.08);
           padding-top: 14px;
@@ -464,15 +429,14 @@ const WhatWeDo: React.FC = () => {
         }
 
         .wwd__dot.active {
-          background: var(--text);
+          background: #0a0a0a;
           width: 22px;
           border-radius: 4px;
         }
 
         .wwd__slide-info {
-          font-family: var(--font-gt-america);
           font-size: 12px;
-          color: var(--text-muted);
+          color: #6b6b6b;
           margin-left: 12px;
           font-variant-numeric: tabular-nums;
         }
@@ -486,20 +450,20 @@ const WhatWeDo: React.FC = () => {
           width: 38px;
           height: 38px;
           border-radius: 50%;
-          border: 1px solid var(--border);
-          background: var(--bg);
+          border: 1px solid rgba(0,0,0,0.10);
+          background: #ffffff;
           cursor: pointer;
           display: flex;
           align-items: center;
           justify-content: center;
-          color: var(--text);
+          color: #0a0a0a;
           transition: all 0.15s ease;
           font-size: 0;
         }
 
         .wwd__arrows button:hover {
-          background: var(--surface);
-          border-color: var(--border-hover);
+          background: #f5f4f1;
+          border-color: rgba(0,0,0,0.22);
         }
 
         .wwd__arrows button:disabled {
@@ -677,6 +641,6 @@ const WhatWeDo: React.FC = () => {
       </section>
     </>
   );
-};
+}
 
 export default WhatWeDo;

@@ -2,46 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: "GT America";
-  src: local("GT America"), local("GT America Regular");
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "GT America";
-  src: local("GT America Medium"), local("GT America");
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "GT America";
-  src: local("GT America SemiBold"), local("GT America");
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "GT America";
-  src: local("GT America Bold"), local("GT America");
-  font-style: normal;
-  font-weight: 700 800;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Canela";
-  src: local("Canela Italic"), local("Canela-RegularItalic"), local("Canela Regular Italic");
-  font-style: italic;
-  font-weight: 400;
-  font-display: swap;
-}
-
 :root {
   /* Figma Design Colors */
   --primary-cyan: #00B4D8;
@@ -53,14 +13,18 @@
   --text-white: #FFFFFF;
   --border-light: #E5E7EB;
 
-  /* Font stacks */
-  --font-gt-america: "GT America", Arial, sans-serif;
-  --font-canela-italic: "Canela", Georgia, serif;
-  /* Legacy aliases — all resolve to GT America */
-  --font-instrument: var(--font-gt-america);
-  --font-manrope: var(--font-gt-america);
-  --font-lato: var(--font-gt-america);
-  --font-playfair: var(--font-canela-italic);
+  /* ─── Single Font System ─── */
+  /* Inter is loaded via next/font/google; --font-inter is injected by Next.js.
+     Falls back to system-installed Inter, then sans-serif. */
+  --font-primary: var(--font-inter, "Inter"), sans-serif;
+
+  /* Legacy aliases — all resolve to Inter */
+  --font-gt-america: var(--font-primary);
+  --font-canela-italic: var(--font-primary);
+  --font-instrument: var(--font-primary);
+  --font-manrope: var(--font-primary);
+  --font-lato: var(--font-primary);
+  --font-playfair: var(--font-primary);
 
   /* Typography rhythm */
   --heading-tight: 1.08;
@@ -87,7 +51,7 @@
 
 html {
   /* Root font lock — all `inherit` values cascade from here */
-  font-family: var(--font-gt-america);
+  font-family: var(--font-primary);
   overflow-x: hidden;
   width: 100%;
 }
@@ -116,14 +80,14 @@ body * {
   font-family: inherit !important;
 }
 
-/* Typography hierarchy: GT America everywhere by default; Canela Italic only for explicit premium/hero/highlight roles. */
+/* Typography hierarchy: Inter everywhere. */
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-gt-america) !important;
+  font-family: var(--font-primary) !important;
   font-style: normal;
 }
 
@@ -153,18 +117,18 @@ h6 {
   letter-spacing: 0;
 }
 
-/* Canela Italic roles */
+/* Former display-serif roles — now Inter */
 .global-heading-style,
 .leadership-heading,
 .font-playfair,
 .font-canela {
-  font-family: var(--font-canela-italic) !important;
-  font-style: italic;
-  font-weight: 400;
+  font-family: var(--font-primary) !important;
+  font-style: normal;
+  font-weight: 500;
   line-height: var(--heading-tight);
 }
 
-/* Allow italic tags/utility only when they also carry the explicit Canela role */
+/* Semantic italics keep the same family */
 em,
 i,
 .italic {
@@ -172,10 +136,10 @@ i,
   font-style: italic;
 }
 
-/* Highlight words using existing class hook */
+/* Highlight words using existing class hook — now Inter */
 [class*="font-playfair"] {
-  font-family: var(--font-canela-italic) !important;
-  font-style: italic;
+  font-family: var(--font-primary) !important;
+  font-style: normal;
 }
 
 p,
@@ -204,17 +168,17 @@ b,
 .font-semibold,
 .font-bold,
 .font-extrabold {
-  font-family: var(--font-gt-america) !important;
+  font-family: var(--font-primary) !important;
 }
 
-/* Keep Canela scope limited to explicit classes (not generic headings). */
+/* Keep former Canela scopes on Inter as well */
 .global-heading-style *,
 .leadership-heading *,
 .font-playfair *,
 .font-canela * {
-  font-family: var(--font-canela-italic) !important;
-  font-style: italic;
-  font-weight: 400;
+  font-family: var(--font-primary) !important;
+  font-style: normal;
+  font-weight: 500;
 }
 
 button,
@@ -225,7 +189,7 @@ label,
 input,
 select,
 textarea {
-  font-family: var(--font-gt-america) !important;
+  font-family: var(--font-primary) !important;
 }
 
 
@@ -376,56 +340,56 @@ section {
     all: unset;
   }
 
-  /* ─── Luxury Typography System ─────────────────────────────────── */
+  /* ─── Typography System (Inter only) ─────────────────────────── */
 
-  /* Hero — largest display, maximum tightness (GT America) */
+  /* Hero — largest display, maximum tightness */
   .type-hero {
-    font-family: var(--font-gt-america) !important;
+    font-family: var(--font-primary) !important;
     font-weight: 500;
     font-style: normal;
     line-height: 1.04;
     letter-spacing: var(--tracking-hero);
   }
 
-  /* Display — section openers, major page titles (GT America) */
+  /* Display — section openers, major page titles */
   .type-display {
-    font-family: var(--font-gt-america) !important;
+    font-family: var(--font-primary) !important;
     font-weight: 500;
     font-style: normal;
     line-height: 1.08;
     letter-spacing: var(--tracking-display);
   }
 
-  /* Heading — card titles, dashboard headers (GT America) */
+  /* Heading — card titles, dashboard headers */
   .type-heading {
-    font-family: var(--font-gt-america) !important;
+    font-family: var(--font-primary) !important;
     font-weight: 600;
     font-style: normal;
     line-height: 1.2;
     letter-spacing: var(--tracking-heading);
   }
 
-  /* Subheading — subtitles, sidebar sections, form labels (GT America) */
+  /* Subheading — subtitles, sidebar sections, form labels */
   .type-subheading {
-    font-family: var(--font-gt-america) !important;
+    font-family: var(--font-primary) !important;
     font-weight: 500;
     font-style: normal;
     line-height: 1.35;
     letter-spacing: 0;
   }
 
-  /* Body — readable prose, UI text (GT America) */
+  /* Body — readable prose, UI text */
   .type-body {
-    font-family: var(--font-gt-america) !important;
+    font-family: var(--font-primary) !important;
     font-weight: 400;
     font-style: normal;
     line-height: var(--body-readable);
     letter-spacing: 0;
   }
 
-  /* Caption — small supporting text, table cells (GT America) */
+  /* Caption — small supporting text, table cells */
   .type-caption {
-    font-family: var(--font-gt-america) !important;
+    font-family: var(--font-primary) !important;
     font-weight: 400;
     font-style: normal;
     line-height: 1.4;
@@ -433,9 +397,9 @@ section {
     font-size: 0.875rem;
   }
 
-  /* Label — uppercase spaced institutional labels, menu categories (GT America) */
+  /* Label — uppercase spaced institutional labels, menu categories */
   .type-label {
-    font-family: var(--font-gt-america) !important;
+    font-family: var(--font-primary) !important;
     font-weight: 500;
     font-style: normal;
     line-height: 1;
@@ -444,20 +408,20 @@ section {
     font-size: 0.75rem;
   }
 
-  /* Accent — Canela Italic, sparingly for hero highlights, luxury words */
+  /* Accent — formerly Canela Italic, now Inter for hero highlights */
   .type-accent {
-    font-family: var(--font-canela-italic) !important;
-    font-weight: 400;
-    font-style: italic;
+    font-family: var(--font-primary) !important;
+    font-weight: 500;
+    font-style: normal;
     line-height: 1.15;
     letter-spacing: 0;
   }
 
-  /* Quote — Canela Italic for testimonials, pull quotes, elegant subtitles */
+  /* Quote — formerly Canela Italic, now Inter for testimonials, pull quotes */
   .type-quote {
-    font-family: var(--font-canela-italic) !important;
+    font-family: var(--font-primary) !important;
     font-weight: 400;
-    font-style: italic;
+    font-style: normal;
     line-height: 1.5;
     letter-spacing: 0.01em;
   }
@@ -467,8 +431,8 @@ section {
     color: #1F1F1F;
     text-align: center;
     font-size: 44.397px;
-    font-style: italic;
-    font-weight: 400;
+    font-style: normal;
+    font-weight: 500;
     line-height: 108%;
     text-transform: capitalize;
   }

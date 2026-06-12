@@ -300,7 +300,7 @@ function WorkTogether() {
             <svg viewBox="0 0 100 100" className="h-8 w-8">
               <defs><linearGradient id="lx" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#5B7CFF" /><stop offset="1" stopColor="#3A1FC0" /></linearGradient></defs>
               <path d="M26 18 L74 82" stroke="url(#lx)" strokeWidth="16" strokeLinecap="round" />
-              <path d="M74 18 L26 82" stroke="url(#lx)" strokeWidth="16" strokeLinecap="round" />
+              <path d="M74 18 L26 84" stroke="url(#lx)" strokeWidth="16" strokeLinecap="round" />
             </svg>
             <p className="mt-1.5 px-3 text-[11px] font-semibold leading-[1.35] text-white">Better Outcomes. Stronger Together.</p>
           </div>
@@ -358,14 +358,6 @@ function HowWeLead() {
                 whileHover={{ y: -6, transition: { duration: 0.22, ease: "easeOut" } }}
                 transition={{ duration: 0.55, delay: i * 0.28, ease: [0.22, 1, 0.36, 1] }}
               >
-                {/* ghosted number */}
-                {/* <span
-                  className="pointer-events-none absolute -top-3 right-1 select-none text-[54px] font-black leading-none tracking-tight"
-                  style={{ color: "#EBEFF9" }}
-                >
-                  {p.num}
-                </span> */}
-
                 {/* icon tile */}
                 <div
                   className="relative flex h-14 w-14 items-center justify-center rounded-2xl ring-1 ring-[#E4E9F6] transition-all duration-300 group-hover:ring-[#C7D3FB]"
@@ -466,7 +458,6 @@ export default function LeadershipSection() {
             <span className="font-bold" style={{ color: BLUE }}>The people who set the direction and own the standard.</span>
             <p className="mt-5 text-[14px] leading-[1.6] w-[650px]" style={{ color: INK }}>
               NineXGroup was founded by two people who decided strategy and engineering should never be separate conversations, and then built a company to prove it. One owns the vision and the business. The other owns the technology and the build. Together they make sure neither side of the house ever loses sight of the other.
-
             </p>
           </Reveal>
 

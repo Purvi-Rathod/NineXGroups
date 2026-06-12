@@ -14,7 +14,7 @@ export default function CareerSection() {
 
           <h2 className="text-[clamp(1.5rem,4.2vw,2rem)] sm:text-[40px] md:text-[48px] font-semibold leading-[1.08] sm:leading-[1.05] tracking-[-0.02em] text-[#0B1A3A] px-1 sm:px-0">
             Supercharge Your Career with{" "}
-            <span className="text-blue-600 font-canela italic">
+            <span className="text-blue-600">
               NineXGroups
             </span>
           </h2>

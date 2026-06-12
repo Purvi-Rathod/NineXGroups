@@ -4,13 +4,18 @@ import { motion, useReducedMotion } from "framer-motion";
 import type { ComponentType, ReactNode, SVGProps } from "react";
 
 /* ------------------------------------------------------------------ */
-/*  Tokens                                                            */
+/*  Tokens — NineXGroup logo/brand theme                              */
 /* ------------------------------------------------------------------ */
-const INK = "#0E1A3A";
-const BLUE = "#2348E6";
-const DARK = "#0A1738";
-const BODY = "#586079";
-const MUTE = "#8A93A8";
+const INK = "#0B1A3A";
+const BLUE = "#1959FA";
+const CYAN = "#12D4FF";
+const DARK = "#0A1628";
+const BODY = "rgba(11,26,58,0.70)";
+const MUTE = "rgba(11,26,58,0.45)";
+/** The exact X-mark gradient from the logo (same stops as .nav-text-gradient in globals.css) */
+const LOGO_GRADIENT = "linear-gradient(96.4deg, #12D4FF 27.64%, #1959FA 73.51%)";
+/** Brand-tinted light surface (matches hero #E9F7FF) */
+const TINT = "#E9F7FF";
 const DEFAULT_BUILDING_SRC =
   "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1400&auto=format&fit=crop";
 
@@ -44,7 +49,8 @@ const Wordmark = ({ className }: { className?: string }) => (
   </span>
 );
 
-const BrandX = ({ className, style, from = "#5B7CFF", to = "#1A24C4" }: { className?: string; style?: React.CSSProperties; from?: string; to?: string }) => {
+/** X mark — exact logo gradient by default */
+const BrandX = ({ className, style, from = CYAN, to = BLUE }: { className?: string; style?: React.CSSProperties; from?: string; to?: string }) => {
   const id = `bx-${from}-${to}`.replace(/[^a-z0-9]/gi, "");
   return (
     <svg viewBox="0 0 100 100" className={className} style={style} aria-hidden>
@@ -69,15 +75,15 @@ function Reveal({ children, delay = 0, className }: { children: ReactNode; delay
 function Eyebrow({ text, color = BLUE }: { text: string; color?: string }) {
   return (
     <div className="flex items-center gap-3">
-      <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color }}>{text}</span>
-      <span className="h-px w-9" style={{ background: color }} />
+      <span className="text-[12px] sm:text-[13px] font-semibold uppercase tracking-[0.14em]" style={{ color }}>{text}</span>
+      <span className="h-px w-9" style={{ background: LOGO_GRADIENT }} />
     </div>
   );
 }
 
-function IconCircle({ Icon, size = 44 }: { Icon: ComponentType<IconProps>; size?: number }) {
+function IconCircle({ Icon, size = 44, className = "" }: { Icon: ComponentType<IconProps>; size?: number; className?: string }) {
   return (
-    <div className="flex shrink-0 items-center justify-center rounded-full" style={{ width: size, height: size, background: "#EEF2FB", color: BLUE }}>
+    <div className={`flex shrink-0 items-center justify-center rounded-full ${className}`} style={{ width: size, height: size, background: TINT, color: BLUE }}>
       <Icon style={{ width: size * 0.5, height: size * 0.5 }} />
     </div>
   );
@@ -125,28 +131,21 @@ export default function ValuesSection() {
   const buildingSrc = DEFAULT_BUILDING_SRC;
 
   return (
-    <section className="bg-[#FBFCFE] text-[15px]">
+    <section className="bg-[#FBFCFE]">
       {/* ===================== Header ===================== */}
       <div className="mx-auto max-w-[1300px]">
-        <div className="grid lg:grid-cols-2">
+        <div className="grid gap-8 lg:grid-cols-2 lg:gap-0">
           {/* left */}
-          <Reveal className="px-6 pb-10 pt-10 lg:px-12 lg:pb-16 lg:pt-12">
-            <Wordmark className="text-[19px] font-extrabold" />
+          <Reveal className="px-6 pb-2 pt-10 lg:px-12 lg:pb-16 lg:pt-12">
+            <Wordmark className="text-[19px] font-semibold" />
             <div className="mt-10"><Eyebrow text="Our Values & Culture" /></div>
             <h1
-              className="
-                text-[46px]
-                md:text-[54px]
-                lg:text-[64px]
-                font-medium
-                leading-[0.92]
-                tracking-[-0.045em]
-                text-[#0A1633]
-              "
-            >              
-                The standards we hire for, reward, and live by.
+              className="mt-6 text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] font-medium leading-[1.06] tracking-[-0.03em]"
+              style={{ color: INK }}
+            >
+              The standards we hire for, reward, and live by.
             </h1>
-            <span className="mt-6 block h-[5px] w-16 rounded-full" style={{ background: BLUE }} />
+            <span className="mt-6 block h-[4px] w-16 rounded-full" style={{ background: LOGO_GRADIENT }} />
             <p className="mt-5 text-[13px]" style={{ color: MUTE }}>ninex-group.com&nbsp;&nbsp;|&nbsp;&nbsp;Founded 2024</p>
           </Reveal>
 
@@ -154,11 +153,12 @@ export default function ValuesSection() {
           <div className="flex flex-col">
             <Reveal>
               <div
-                className="relative h-[260px] w-full overflow-hidden rounded-bl-[28px] sm:h-[330px] lg:h-[440px]"
-                style={{ background: buildingSrc ? undefined : "linear-gradient(150deg,#9DB4E8,#5E7BC8 55%,#3A538F)" }}
+                className="relative h-[220px] w-full overflow-hidden rounded-bl-[28px] sm:h-[330px] lg:h-[440px]"
+                style={{ background: buildingSrc ? undefined : LOGO_GRADIENT }}
               >
                 {buildingSrc ? (
-                  <img src={buildingSrc} alt="" className="h-full w-full object-cover" />
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={buildingSrc} alt="" loading="lazy" className="h-full w-full object-cover" />
                 ) : (
                   <div className="absolute inset-0 opacity-25" style={{ backgroundImage: "repeating-linear-gradient(125deg, rgba(255,255,255,0.3) 0 1px, transparent 1px 26px)" }} />
                 )}
@@ -167,17 +167,17 @@ export default function ValuesSection() {
                   animate={reduce ? {} : { y: [0, -8, 0] }}
                   transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
                 >
-                  <BrandX className="h-20 w-20" from="rgba(255,255,255,0.55)" to="rgba(255,255,255,0.12)" />
+                  <BrandX className="h-14 w-14 sm:h-20 sm:w-20" from="rgba(255,255,255,0.55)" to="rgba(255,255,255,0.12)" />
                 </motion.div>
               </div>
             </Reveal>
 
             <Reveal delay={0.1} className="px-6 pb-10 pt-7 lg:pl-12 lg:pr-12 lg:pt-9">
               <span className="mb-3 block h-px w-9" style={{ background: BLUE }} />
-              <p className="text-[19px] font-bold" style={{ color: INK }}>
-                Not slogans. <span style={{ color: BLUE }}>Operating principles.</span>
+              <p className="text-[18px] sm:text-[19px] font-semibold tracking-[-0.01em]" style={{ color: INK }}>
+                Not slogans. <span className="nav-text-gradient">Operating principles.</span>
               </p>
-              <p className="mt-4 max-w-[440px] text-[14px] leading-[1.7]" style={{ color: BODY }}>
+              <p className="mt-4 max-w-[440px] text-[14px] sm:text-[15px] leading-[1.7] tracking-[-0.01em]" style={{ color: BODY }}>
                 The standards we hire against, promote against, and hold each other to. Here is what each one means in practice, not in theory.
               </p>
             </Reveal>
@@ -186,22 +186,25 @@ export default function ValuesSection() {
       </div>
 
       {/* ===================== Values list ===================== */}
-      <div className="mx-auto mt-14 max-w-[1300px] px-6 lg:px-8">
+      <div className="mx-auto mt-10 max-w-[1300px] px-6 md:mt-14 lg:px-8">
         <Reveal><Eyebrow text="Our Values" /></Reveal>
-        <div className="mt-6 rounded-[22px] border border-[#ECEFF6] bg-white px-6 sm:px-8">
+        <div className="mt-6 rounded-[22px] border border-[#ECEFF6] bg-white px-5 sm:px-8">
           {values.map((v, i) => {
             const Icon = v.Icon;
             return (
               <motion.div
                 key={v.n}
-                className="group grid items-start gap-x-6 gap-y-3 border-b border-[#EEF1F8] py-6 last:border-0 lg:grid-cols-[52px_56px_200px_1fr] lg:items-center lg:gap-y-0"
-                initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.4 }}
+                className="group grid items-start gap-x-4 gap-y-3 border-b border-[#EEF1F8] py-6 last:border-0 sm:gap-x-6 lg:grid-cols-[52px_56px_220px_1fr] lg:items-center lg:gap-y-0"
+                initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.45, delay: Math.min(i, 4) * 0.06, ease: "easeOut" }}
               >
-                <span className="text-[26px] font-bold" style={{ color: "#23304F" }}>{v.n}</span>
-                <div className="row-start-1 lg:row-auto"><div className="transition-transform duration-300 group-hover:scale-105"><IconCircle Icon={Icon} /></div></div>
-                <h3 className="text-[16.5px] font-bold leading-[1.25]" style={{ color: INK }}>{v.title}</h3>
-                <p className="text-[12.8px] leading-[1.62]" style={{ color: BODY }}>{v.body}</p>
+                {/* mobile: number + icon + title in one row; desktop: dissolves into 4-col grid */}
+                <div className="flex items-center gap-4 lg:contents">
+                  <span className="text-[20px] sm:text-[24px] font-semibold tabular-nums" style={{ color: "rgba(11,26,58,0.35)" }}>{v.n}</span>
+                  <div className="transition-transform duration-300 group-hover:scale-105"><IconCircle Icon={Icon} /></div>
+                  <h3 className="text-[16px] sm:text-[17px] font-semibold leading-[1.3] tracking-[-0.01em] lg:pr-4" style={{ color: INK }}>{v.title}</h3>
+                </div>
+                <p className="text-[14px] sm:text-[15px] leading-[1.65] tracking-[-0.01em]" style={{ color: BODY }}>{v.body}</p>
               </motion.div>
             );
           })}
@@ -211,20 +214,21 @@ export default function ValuesSection() {
       {/* ===================== Culture banner ===================== */}
       <div className="mx-auto mt-12 max-w-[1300px] px-6 lg:px-8">
         <Reveal>
-          <div className="relative overflow-hidden rounded-[22px] p-8 sm:p-10" style={{ background: DARK }}>
-            <svg className="pointer-events-none absolute -right-6 top-0 h-full w-56 opacity-40" viewBox="0 0 200 300" fill="none" aria-hidden>
+          <div className="relative overflow-hidden rounded-[22px] p-6 sm:p-10" style={{ background: DARK }}>
+            <div className="absolute inset-x-0 top-0 h-[3px]" style={{ background: LOGO_GRADIENT }} />
+            <svg className="pointer-events-none absolute -right-6 top-0 hidden h-full w-56 opacity-20 sm:block" viewBox="0 0 200 300" fill="none" aria-hidden>
               {Array.from({ length: 7 }).map((_, k) => (
-                <path key={k} d={`M${40 + k * 16} 0 C ${120 + k * 10} 80, ${120 + k * 10} 220, ${40 + k * 16} 300`} stroke="#2A3A66" strokeWidth="1" />
+                <path key={k} d={`M${40 + k * 16} 0 C ${120 + k * 10} 80, ${120 + k * 10} 220, ${40 + k * 16} 300`} stroke={CYAN} strokeWidth="1" />
               ))}
             </svg>
-            <div className="relative grid gap-8 lg:grid-cols-[1fr_1fr]">
+            <div className="relative grid gap-6 lg:grid-cols-[1fr_1fr] lg:gap-8">
               <div>
-                <Eyebrow text="Our Culture" color="#5E7BFF" />
-                <h2 className="mt-5 text-[28px] font-bold leading-[1.2] sm:text-[32px] text-white">
+                <Eyebrow text="Our Culture" color={CYAN} />
+                <h2 className="mt-5 text-[24px] sm:text-[32px] font-semibold leading-[1.2] tracking-[-0.02em] text-white">
                   NineXGroup is a place for people who like to build.
                 </h2>
               </div>
-              <p className="self-center text-[13.5px] leading-[1.8]" style={{ color: "#AEB9D6" }}>
+              <p className="self-center text-[14px] sm:text-[15px] leading-[1.75] tracking-[-0.01em] text-white/65">
                 We tend to attract operators who would rather fix a hard problem than manage around it, and who take pride in work that ships and holds up. Our structure is flat and quick, which means talented people get real ownership early, work next to experts in other disciplines, and get rewarded for results rather than politics. We are growing fast, and we are being careful to keep what makes this place good as we get bigger.
               </p>
             </div>
@@ -235,7 +239,7 @@ export default function ValuesSection() {
       {/* ===================== What it feels like ===================== */}
       <div className="mx-auto mt-12 max-w-[1300px] px-6 lg:px-8">
         <Reveal><Eyebrow text="What It Feels Like To Work Here" /></Reveal>
-        <div className="mt-7 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-7 grid grid-cols-1 gap-8 min-[480px]:grid-cols-2 lg:grid-cols-4">
           {workFeel.map((w, i) => {
             const Icon = w.Icon;
             return (
@@ -243,8 +247,8 @@ export default function ValuesSection() {
                 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.5, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}>
                 <div className="transition-transform duration-300 group-hover:scale-105"><IconCircle Icon={Icon} size={48} /></div>
-                <h3 className="mt-4 text-[15.5px] font-bold leading-[1.25]" style={{ color: INK }}>{w.title}</h3>
-                <p className="mt-2.5 text-[13px] leading-[1.65]" style={{ color: BODY }}>{w.body}</p>
+                <h3 className="mt-4 text-[16px] font-semibold leading-[1.3] tracking-[-0.01em]" style={{ color: INK }}>{w.title}</h3>
+                <p className="mt-2.5 text-[14px] leading-[1.65] tracking-[-0.01em]" style={{ color: BODY }}>{w.body}</p>
               </motion.div>
             );
           })}
@@ -252,17 +256,17 @@ export default function ValuesSection() {
       </div>
 
       {/* ===================== How we hire ===================== */}
-      <div className="mx-auto mt-14 max-w-[1300px] border-t border-[#ECEFF6] px-6 pt-14 lg:px-8">
-        <div className="grid gap-12 lg:grid-cols-[300px_1fr]">
+      <div className="mx-auto mt-14 max-w-[1300px] border-t border-[#ECEFF6] px-6 pt-12 md:pt-14 lg:px-8">
+        <div className="grid gap-10 lg:grid-cols-[300px_1fr] lg:gap-12">
           <Reveal>
             <Eyebrow text="How We Hire" />
-            <p className="mt-5 text-[13.5px] leading-[1.72]" style={{ color: BODY }}>
+            <p className="mt-5 text-[14px] sm:text-[15px] leading-[1.7] tracking-[-0.01em]" style={{ color: BODY }}>
               We are deliberate about who joins, because at our stage every hire shapes the culture. We look for three things above all: genuine craft in your discipline, the judgment to own an outcome rather than just a task, and the kind of straightforwardness that makes you easy to trust. Titles and pedigree help, but they do not get you in the door on their own. The work and the way you carry yourself do.
             </p>
           </Reveal>
 
           <div>
-            <div className="grid grid-cols-1 gap-y-12 sm:grid-cols-3 sm:gap-y-0">
+            <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-3 sm:gap-y-0">
               {hireSteps.map((s, i) => {
                 const Icon = s.Icon;
                 const t = i * 0.5; // sequence anchor for this step
@@ -273,7 +277,7 @@ export default function ValuesSection() {
                       <div className="absolute left-[calc(50%+44px)] right-[-44px] top-[40px] hidden items-center sm:flex">
                         <motion.span
                           className="h-px flex-1 origin-left"
-                          style={{ borderTop: "1.5px dashed #C5D0EC" }}
+                          style={{ borderTop: "1.5px dashed rgba(25,89,250,0.30)" }}
                           initial={{ scaleX: 0 }}
                           whileInView={{ scaleX: 1 }}
                           viewport={{ once: true }}
@@ -286,12 +290,12 @@ export default function ValuesSection() {
                           viewport={{ once: true }}
                           transition={{ duration: 0.3, delay: t + 0.7 }}
                         >
-                          <path d="M1 1l4 4-4 4" fill="none" stroke="#97A3C4" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                          <path d="M1 1l4 4-4 4" fill="none" stroke="rgba(25,89,250,0.45)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                         </motion.svg>
                         {!reduce && (
                           <motion.span
                             className="absolute left-0 top-1/2 h-[6px] w-[6px] -translate-y-1/2 rounded-full"
-                            style={{ background: BLUE }}
+                            style={{ background: LOGO_GRADIENT }}
                             initial={{ left: "0%", opacity: 0 }}
                             animate={{ left: ["0%", "90%"], opacity: [0, 1, 0] }}
                             transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut", delay: 1.8 + i * 0.4 }}
@@ -309,8 +313,8 @@ export default function ValuesSection() {
                       transition={{ duration: 0.5, delay: t, ease: [0.22, 1, 0.36, 1] }}
                     >
                       <div
-                        className="flex h-[78px] w-[78px] items-center justify-center rounded-full ring-1 ring-[#E1E8F7] shadow-[0_14px_30px_-16px_rgba(35,72,230,0.45)] transition-transform duration-300 group-hover:scale-105"
-                        style={{ backgroundImage: "linear-gradient(160deg,#F1F5FF,#E4ECFB)" }}
+                        className="flex h-[78px] w-[78px] items-center justify-center rounded-full ring-1 ring-[rgba(25,89,250,0.15)] shadow-[0_14px_30px_-16px_rgba(25,89,250,0.45)] transition-transform duration-300 group-hover:scale-105"
+                        style={{ backgroundImage: "linear-gradient(160deg,#E9F7FF,#E3ECFD)" }}
                       >
                         <Icon className="h-7 w-7" style={{ color: BLUE }} />
                       </div>
@@ -323,8 +327,8 @@ export default function ValuesSection() {
                       viewport={{ once: true, amount: 0.5 }}
                       transition={{ duration: 0.5, delay: t + 0.16, ease: [0.22, 1, 0.36, 1] }}
                     >
-                      <h3 className="mt-5 text-[14px] font-extrabold tracking-[0.12em]" style={{ color: INK }}>{s.title}</h3>
-                      <p className="mx-auto mt-2.5 max-w-[210px] text-[12.5px] leading-[1.6]" style={{ color: BODY }}>{s.body}</p>
+                      <h3 className="mt-5 text-[13px] font-semibold uppercase tracking-[0.14em]" style={{ color: INK }}>{s.title}</h3>
+                      <p className="mx-auto mt-2.5 max-w-[220px] text-[13px] sm:text-[14px] leading-[1.6] tracking-[-0.01em]" style={{ color: BODY }}>{s.body}</p>
                     </motion.div>
                   </div>
                 );
@@ -332,7 +336,7 @@ export default function ValuesSection() {
             </div>
 
             <Reveal delay={0.15}>
-              <p className="mt-10 text-[13px] leading-[1.7]" style={{ color: BODY }}>
+              <p className="mt-10 text-[14px] leading-[1.7] tracking-[-0.01em]" style={{ color: BODY }}>
                 As we scale, this is the standard the founders guard most carefully. It is far easier to protect a good culture than to rebuild one that drifted.
               </p>
             </Reveal>
@@ -345,21 +349,24 @@ export default function ValuesSection() {
         <div className="grid gap-8 lg:grid-cols-[1fr_0.92fr]">
           <Reveal>
             <Eyebrow text="Diversity & Inclusion" />
-            <h2 className="mt-4 text-[26px] font-bold leading-[1.2] tracking-[-0.01em] sm:text-[28px]" style={{ color: INK }}>
+            <h2 className="mt-4 text-[24px] sm:text-[28px] font-semibold leading-[1.2] tracking-[-0.02em]" style={{ color: INK }}>
               Different perspectives create better outcomes.
             </h2>
-            <p className="mt-4 text-[13px] leading-[1.72]" style={{ color: BODY }}>
+            <p className="mt-4 text-[14px] sm:text-[15px] leading-[1.7] tracking-[-0.01em]" style={{ color: BODY }}>
               We believe diverse teams deliver better outcomes, and we are building a workplace where everyone feels valued, respected, and able to do their best work. That means fair and transparent practices, including pay equity, an environment where people can be themselves, and a deliberate effort to bring different perspectives into the room rather than hire the same person ten times over. We are early in this journey and we intend to do it properly, not performatively.
             </p>
-            <div className="mt-7 flex flex-wrap gap-x-7 gap-y-5">
+            {/* always one line: items share the row and shrink together */}
+            <div className="mt-7 flex items-start justify-between gap-2 sm:justify-start sm:gap-x-5">
               {diItems.map((d, i) => {
                 const Icon = d.Icon;
                 return (
-                  <motion.div key={d.label} className="group flex w-[88px] flex-col items-center text-center"
+                  <motion.div key={d.label} className="group flex min-w-0 flex-1 flex-col items-center text-center sm:w-[98px] sm:flex-none"
                     initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.4 }}
                     transition={{ duration: 0.4, delay: i * 0.08 }}>
-                    <div className="transition-transform duration-300 group-hover:scale-110"><IconCircle Icon={Icon} size={46} /></div>
-                    <span className="mt-2 text-[12px] font-semibold" style={{ color: INK }}>{d.label}</span>
+                    <div className="transition-transform duration-300 group-hover:scale-110">
+                      <IconCircle Icon={Icon} size={56} className="!h-11 !w-11 sm:!h-14 sm:!w-14" />
+                    </div>
+                    <span className="mt-2 text-[11px] sm:text-[12px] font-medium leading-tight" style={{ color: INK }}>{d.label}</span>
                   </motion.div>
                 );
               })}
@@ -368,17 +375,17 @@ export default function ValuesSection() {
 
           {/* quote card */}
           <Reveal delay={0.1}>
-            <div className="relative h-full overflow-hidden rounded-[22px] p-9" style={{ background: DARK, minHeight: 280 }}>
+            <div className="relative h-full overflow-hidden rounded-[22px] p-6 sm:p-9" style={{ background: DARK, minHeight: 280 }}>
               <motion.div className="pointer-events-none absolute -bottom-10 -right-8" animate={reduce ? {} : { y: [0, -10, 0], opacity: [0.9, 1, 0.9] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}>
-                <BrandX className="h-64 w-64" from="#3E64FF" to="#1A1FA8" />
+                <BrandX className="h-48 w-48 sm:h-64 sm:w-64" />
               </motion.div>
               <div className="relative">
-                <QuoteMark color="#3E64FF" />
-                <p className="mt-5 text-[23px] font-bold leading-[1.3] text-white">
+                <QuoteMark color={CYAN} />
+                <p className="mt-5 text-[20px] sm:text-[23px] font-semibold leading-[1.35] tracking-[-0.01em] text-white">
                   These values come straight from the founders.
                 </p>
-                <p className="mt-5 text-[14px] text-[#AEB9D6]">
-                  To meet them, read the <span className="font-semibold" style={{ color: "#5E83FF" }}>Leadership Team</span> page.
+                <p className="mt-5 text-[14px] sm:text-[15px] text-white/65">
+                  To meet them, read the <span className="font-semibold" style={{ color: CYAN }}>Leadership Team</span> page.
                 </p>
               </div>
             </div>

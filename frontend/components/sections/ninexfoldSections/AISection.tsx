@@ -30,7 +30,7 @@ export default function AISection() {
           {/* Heading */}
           <h2 className="text-[32px] sm:text-[40px] md:text-[52px] font-semibold leading-[1.02] tracking-[-0.03em] text-[#0B1A3A]">
             Enterprise AI that{" "}
-            <span className="font-playfair italic text-blue-600">
+            <span className="text-blue-600">
               actually ships.
             </span>
           </h2>
