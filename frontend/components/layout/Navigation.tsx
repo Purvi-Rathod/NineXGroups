@@ -43,7 +43,7 @@ const navigationItems: NavigationItem[] = [
           { label: "Our Story & Mission", href: "/story" },
           { label: "Leadership Team", href: "/leadership" },
           { label: "Our Values & Culture", href: "/values" },
-          { label: "Global Presence", href: "/global" },
+          // { label: "Global Presence", href: "/global" },
         ],
       },
       {
@@ -63,9 +63,9 @@ const navigationItems: NavigationItem[] = [
         label: "Credibility",
         href: "#",
         children: [
-          { label: "Awards & Recognition", href: "/awards" },
+          // { label: "Awards & Recognition", href: "/awards" },
           { label: "Partner Ecosystem", href: "/partners" },
-          { label: "Global Presence", href: "/global" },
+          // { label: "Global Presence", href: "/global" },
           { label: "CSR & Sustainability", href: "/csr" },
         ],
       },
