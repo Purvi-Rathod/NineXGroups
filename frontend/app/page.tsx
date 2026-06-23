@@ -10,6 +10,7 @@ import ReportSection from "@/components/sections/ninexfoldSections/ReportSection
 import FounderNoteSection from "@/components/sections/ninexfoldSections/FounderNoteSection";
 import CareerSection from "@/components/sections/ninexfoldSections/CareerSection";
 import AISection from "@/components/sections/ninexfoldSections/AISection";
+import BrandsShowcase from "@/components/sections/ninexfoldSections/BrandsShowcase";
 
 
 
@@ -18,7 +19,8 @@ export default function NinexFoldPage() {
         <div className="font-sans">
             <HeroSection />
             <ReportSection />
-            <WhoWeAreSection />
+            {/* <WhoWeAreSection /> */}
+            <BrandsShowcase />
             <FounderNoteSection />
             <WhatWeDoSection />
             <AISection />

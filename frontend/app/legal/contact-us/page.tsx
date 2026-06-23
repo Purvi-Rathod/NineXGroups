@@ -404,8 +404,6 @@ export default function ContactUsPage() {
         </div>
       </section>
 
-      <Footer />
-
       <Toast
         message={toast.message}
         type={toast.type}

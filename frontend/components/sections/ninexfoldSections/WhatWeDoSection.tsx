@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 // ── Type Definitions ──
 interface IndustryCard {
@@ -156,10 +156,14 @@ const WhatWeDo: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [activeData, setActiveData] = useState<IndustryCard[]>(ALL_DATA);
 
+  // ── Touch refs ──
+  const touchStartX = useRef<number | null>(null);
+  const touchStartY = useRef<number | null>(null);
+
   // Filter data when filter changes
   useEffect(() => {
-    const filtered = activeFilter === 'all' 
-      ? ALL_DATA 
+    const filtered = activeFilter === 'all'
+      ? ALL_DATA
       : ALL_DATA.filter(item => item.filter === activeFilter);
     setActiveData(filtered);
     setCurrentIndex(0);
@@ -258,6 +262,7 @@ const WhatWeDo: React.FC = () => {
         .wwd__outer {
           overflow: hidden;
           position: relative;
+          touch-action: pan-y;
         }
 
         .wwd__track {
@@ -570,7 +575,31 @@ const WhatWeDo: React.FC = () => {
         </div>
 
         {/* Carousel */}
-        <div className="wwd__outer">
+        <div
+          className="wwd__outer"
+          onTouchStart={(e) => {
+            touchStartX.current = e.touches[0].clientX;
+            touchStartY.current = e.touches[0].clientY;
+          }}
+          onTouchMove={(e) => {
+            if (touchStartX.current === null || touchStartY.current === null) return;
+            const dx = touchStartX.current - e.touches[0].clientX;
+            const dy = Math.abs(e.touches[0].clientY - touchStartY.current);
+            // only prevent page scroll if predominantly horizontal swipe
+            if (Math.abs(dx) > dy) e.preventDefault();
+          }}
+          onTouchEnd={(e) => {
+            if (touchStartX.current === null || touchStartY.current === null) return;
+            const dx = touchStartX.current - e.changedTouches[0].clientX;
+            const dy = Math.abs(e.changedTouches[0].clientY - touchStartY.current);
+            // fire only if horizontal swipe > 40px and more horizontal than vertical
+            if (Math.abs(dx) > 40 && Math.abs(dx) > dy) {
+              dx > 0 ? handleNext() : handlePrev();
+            }
+            touchStartX.current = null;
+            touchStartY.current = null;
+          }}
+        >
           <div 
             className="wwd__track" 
             style={{ transform: `translateX(-${offset}px)` }}
