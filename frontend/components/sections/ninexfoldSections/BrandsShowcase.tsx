@@ -9,18 +9,27 @@ const brands = [
   {
     name: "NineXFold",
     image: "/images/brands/fold.png",
+    description: "Digital transformation and AI solutions.",
   },
   {
     name: "NineXDevOps",
     image: "/images/brands/devops.png",
+    description: "Cloud, automation and infrastructure.",
   },
   {
     name: "NineXConnect",
     image: "/images/brands/connect.png",
+    description: "Customer engagement and growth.",
   },
   {
     name: "NineXScale",
     image: "/images/brands/scale.png",
+    description: "Scaling businesses with technology.",
+  },
+  {
+    name: "NineXHoomie",
+    image: "/images/brands/hoomie.png",
+    description: "Smart real estate experiences.",
   },
 ];
 
@@ -36,12 +45,12 @@ export default function BrandsShowcase() {
             OUR BRANDS
           </p>
 
-          <h2 className="text-[clamp(1.5rem,4.2vw,2rem)] sm:text-[40px] md:text-[48px] font-semibold leading-[1.08] sm:leading-[1.05] tracking-[-0.02em] text-[#0B1A3A] px-1 sm:px-0">
+          <h2 className="text-[clamp(1.75rem,4vw,3rem)] font-semibold leading-[1.05] tracking-[-0.03em] text-[#0B1A3A]">
             The NineXGroup Ecosystem
           </h2>
 
-          <p className="mx-auto mt-5 max-w-2xl text-base text-neutral-500 md:text-xl">
-            Four specialized brands. One unified vision.
+          <p className="mx-auto mt-5 max-w-2xl text-base text-neutral-500 md:text-lg">
+            Five specialized brands. One unified vision.
           </p>
         </div>
 
@@ -50,12 +59,12 @@ export default function BrandsShowcase() {
           className="
             mt-12
             hidden
-            h-[320px]
+            h-[420px]
             overflow-hidden
             border
             border-neutral-200
             md:flex
-            lg:h-[500px]
+            lg:h-[520px]
           "
         >
           {brands.map((brand, index) => {
@@ -71,20 +80,15 @@ export default function BrandsShowcase() {
                     active === null
                       ? 1
                       : isActive
-                      ? 1.4
-                      : 0.9,
+                      ? 1.6
+                      : 0.85,
                 }}
                 transition={{
                   duration: 0.7,
                   ease: [0.22, 1, 0.36, 1],
                 }}
                 className="
-                  group
                   relative
-                  flex
-                  cursor-pointer
-                  items-center
-                  justify-center
                   overflow-hidden
                   border-r
                   border-neutral-200
@@ -92,9 +96,8 @@ export default function BrandsShowcase() {
                   last:border-r-0
                 "
               >
-                {/* Image */}
+                {/* Background Image */}
                 <motion.div
-                  initial={false}
                   animate={{
                     opacity: isActive ? 1 : 0,
                     scale: isActive ? 1.08 : 1,
@@ -113,53 +116,67 @@ export default function BrandsShowcase() {
                     className="object-cover"
                   />
 
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/10" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20" />
                 </motion.div>
 
-                {/* Content */}
+                {/* Center Content */}
                 <motion.div
                   animate={{
-                    y: isActive ? -12 : 0,
+                    opacity: isActive ? 0 : 1,
+                    scale: isActive ? 0.85 : 1,
                   }}
                   transition={{
-                    duration: 0.5,
+                    duration: 0.4,
                   }}
-                  className="relative z-10 text-center"
+                  className="
+                    absolute
+                    inset-0
+                    z-10
+                    flex
+                    flex-col
+                    items-center
+                    justify-center
+                    text-center
+                  "
                 >
-                  <div
-                    className={`
-                      mb-4
-                      text-[56px]
-                      font-bold
-                      transition-all
-                      duration-500
-                      md:text-[72px]
-                      ${
-                        isActive
-                          ? "text-white"
-                          : "text-neutral-300"
-                      }
-                    `}
-                  >
+                  <div className="text-[52px] font-bold text-neutral-300 lg:text-[70px]">
                     X
                   </div>
 
-                  <h3
-                    className={`
-                      text-[20px]
-                      font-medium
-                      transition-all
-                      duration-500
-                      md:text-[28px]
-                      ${
-                        isActive
-                          ? "text-white"
-                          : "text-neutral-400"
-                      }
-                    `}
-                  >
+                  <h3 className="mt-3 text-lg font-medium text-neutral-400 lg:text-xl">
                     {brand.name}
                   </h3>
+                </motion.div>
+
+                {/* Hover Content */}
+                <motion.div
+                  animate={{
+                    opacity: isActive ? 1 : 0,
+                    x: isActive ? 0 : -20,
+                    y: isActive ? 0 : -20,
+                  }}
+                  transition={{
+                    duration: 0.55,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
+                  className="
+                    absolute
+                    left-6
+                    top-6
+                    z-20
+                  "
+                >
+                  <div className="text-[34px] font-bold text-white lg:text-[42px]">
+                    X
+                  </div>
+
+                  <h3 className="mt-2 text-lg font-semibold text-white lg:text-xl">
+                    {brand.name}
+                  </h3>
+
+                  <p className="mt-3 max-w-[220px] text-sm leading-relaxed text-white/80">
+                    {brand.description}
+                  </p>
                 </motion.div>
               </motion.div>
             );
@@ -179,14 +196,13 @@ export default function BrandsShowcase() {
                 }
                 className="
                   relative
-                  h-[220px]
+                  h-[240px]
                   overflow-hidden
                   border
                   border-neutral-200
                   bg-white
                 "
               >
-                {/* Image */}
                 <motion.div
                   animate={{
                     opacity: isActive ? 1 : 0,
@@ -204,40 +220,34 @@ export default function BrandsShowcase() {
                     className="object-cover"
                   />
 
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/10" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20" />
                 </motion.div>
 
-                {/* Content */}
-                <div className="relative z-10 flex h-full flex-col items-center justify-center text-center">
-                  <div
-                    className={`
-                      mb-3
-                      text-[52px]
-                      font-bold
-                      ${
-                        isActive
-                          ? "text-white"
-                          : "text-neutral-300"
-                      }
-                    `}
-                  >
-                    X
-                  </div>
+                {!isActive ? (
+                  <div className="relative z-10 flex h-full flex-col items-center justify-center">
+                    <div className="text-[52px] font-bold text-neutral-300">
+                      X
+                    </div>
 
-                  <h3
-                    className={`
-                      text-xl
-                      font-medium
-                      ${
-                        isActive
-                          ? "text-white"
-                          : "text-neutral-400"
-                      }
-                    `}
-                  >
-                    {brand.name}
-                  </h3>
-                </div>
+                    <h3 className="mt-3 text-lg font-medium text-neutral-400">
+                      {brand.name}
+                    </h3>
+                  </div>
+                ) : (
+                  <div className="absolute left-6 top-6 z-20">
+                    <div className="text-[34px] font-bold text-white">
+                      X
+                    </div>
+
+                    <h3 className="mt-2 text-lg font-semibold text-white">
+                      {brand.name}
+                    </h3>
+
+                    <p className="mt-3 max-w-[220px] text-sm text-white/80">
+                      {brand.description}
+                    </p>
+                  </div>
+                )}
               </div>
             );
           })}

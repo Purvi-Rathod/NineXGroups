@@ -90,50 +90,26 @@ const NavLink = ({
   </Link>
 );
 
-const DropdownNavItem = ({
-  title,
-  children,
+const BrandGroup = ({
+  name,
+  links,
 }: {
-  title: string;
-  children: React.ReactNode;
-}) => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  return (
-    <div className="flex flex-col w-full">
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="group flex w-full items-center justify-between text-[13px] leading-[1.5] tracking-[-0.01em] text-gray-400 hover:text-white transition-colors py-1.5 text-left"
-      >
-        <span className="w-full">{title}</span>
-        <svg
-          className={`w-3 h-3 text-white/50 group-hover:text-white ml-2 flex-shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180" : ""
-            }`}
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M19 9l-7 7-7-7"
-          />
-        </svg>
-      </button>
-      <div
-        className={`grid transition-[grid-template-rows] duration-300 ease-in-out ${isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
-          }`}
-      >
-        <div className="overflow-hidden">
-          <ul className="pl-3 mt-1 space-y-2 border-l border-white/10 ml-1 mb-1">
-            {children}
-          </ul>
-        </div>
-      </div>
-    </div>
-  );
-};
+  name: string;
+  links: { label: string; href: string }[];
+}) => (
+  <li>
+    <span className="text-[13px] leading-[1.5] tracking-[-0.01em] text-white font-medium py-1 block">
+      {name}
+    </span>
+    <ul className="space-y-3 ml-3 border-l border-white/10 pl-3 mt-2 mb-2">
+      {links.map((l) => (
+        <li key={l.href}>
+          <NavLink href={l.href}>{l.label}</NavLink>
+        </li>
+      ))}
+    </ul>
+  </li>
+);
 
 export default function Footer() {
   return (
@@ -143,502 +119,198 @@ export default function Footer() {
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-[100px] pointer-events-none"></div>
 
       <div className="relative z-10 max-w-[1220px] mx-auto px-5 sm:px-6 md:px-8 lg:px-[34px]">
-        {/* Grid-cols-4 and Items-Start applied */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 items-start">
-          {/* What We Do */}
+          {/* ================= WHAT WE DO ================= */}
           <div className="select-none">
             <AccordionSection title="What We Do">
               <ul className="space-y-3">
-                {/* NineXFold */}
-                <li>
-                  <span className="text-[13px] leading-[1.5] tracking-[-0.01em] text-white font-medium py-1 block">
-                    NineXFold
-                  </span>
-                  <ul className="space-y-3 ml-3 border-l border-white/10 pl-3 mt-2 mb-2">
-                    <li>
-                      <NavLink href="/ninexfold/revops">RevOps</NavLink>
-                    </li>
-                    <li>
-                      <NavLink href="/ninexfold/revenue-architecture">
-                        Revenue Architecture
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink href="/ninexfold/pricing-strategy">
-                        Pricing Strategy
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink href="/ninexfold/crm-implementation">
-                        CRM Implementation
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink href="/ninexfold/sales-automation">
-                        Sales Automation
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink href="/ninexfold/pipeline-management">
-                        Pipeline Management
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink href="/ninexfold/marketing-automation">
-                        Marketing Automation
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink href="/ninexfold/mops-analytics">
-                        MOps & Analytics
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink href="/ninexfold/cx-systems">CX Systems</NavLink>
-                    </li>
-                    <li>
-                      <NavLink href="/ninexfold/bi-data">BI & Data</NavLink>
-                    </li>
-                    <li>
-                      <NavLink href="/ninexfold/erp">ERP</NavLink>
-                    </li>
-                  </ul>
-                </li>
+                <BrandGroup
+                  name="NineXFold"
+                  links={[
+                    { label: "Revenue Systems", href: "/ninexFoldServices/revenue-systems" },
+                    { label: "Sales Systems", href: "/ninexFoldServices/sales-systems" },
+                    { label: "AI & Automation", href: "/ninexFoldServices/ai-automation" },
+                    { label: "Marketing Systems", href: "/ninexFoldServices/marketing-systems" },
+                    { label: "Brand Intelligence System", href: "/ninexFoldServices/brand-intelligence-system" },
+                    { label: "Demand Generation System", href: "/ninexFoldServices/demand-generation-system" },
+                    { label: "Search Visibility System", href: "/ninexFoldServices/search-visibility-system" },
+                    { label: "Content & Social Authority System", href: "/ninexFoldServices/content-social-authority-system" },
+                    { label: "Digital Infrastructure System", href: "/ninexFoldServices/digital-infrastructure-system" },
+                  ]}
+                />
 
-                {/* NineXDevOps */}
-                <li>
-                  <span className="text-[13px] leading-[1.5] tracking-[-0.01em] text-white font-medium py-1 block">
-                    NineXDevOps
-                  </span>
-                  <ul className="space-y-3 ml-3 border-l border-white/10 pl-3 mt-2 mb-2">
-                    <li>
-                      <NavLink href="/ninexdevops/cloud-infrastructure">
-                        Cloud & Infrastructure
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink href="/ninexdevops/ai-generative-ai">
-                        AI & Generative AI
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink href="/ninexdevops/cybersecurity">
-                        Cybersecurity
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink href="/ninexdevops/digital-engineering">
-                        Digital Engineering
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink href="/ninexdevops/product-engineering">
-                        Product Engineering
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink href="/ninexdevops/devops-cicd">
-                        DevOps & CI/CD
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink href="/ninexdevops/networks">Networks</NavLink>
-                    </li>
-                    <li>
-                      <NavLink href="/ninexdevops/digital-workspace">
-                        Digital Workspace
-                      </NavLink>
-                    </li>
-                  </ul>
-                </li>
+                <BrandGroup
+                  name="NineXDevOps"
+                  links={[
+                    { label: "Cloud & Infrastructure", href: "/ninexdevOpsBrand/cloud-infrastructure" },
+                    { label: "AI & Generative AI", href: "/ninexdevOpsBrand/ai-generative-ai" },
+                    { label: "AI Agent Development", href: "/ninexdevOpsBrand/ai-agent-development" },
+                    { label: "Cybersecurity", href: "/ninexdevOpsBrand/cybersecurity" },
+                    { label: "CX Systems", href: "/ninexdevOpsBrand/cx-systems" },
+                    { label: "ERP Enterprise Applications", href: "/ninexdevOpsBrand/erp-enterprise-applications" },
+                    { label: "Digital Engineering", href: "/ninexdevOpsBrand/digital-engineering" },
+                    { label: "DevOps & Automation", href: "/ninexdevOpsBrand/devops-automation" },
+                    { label: "Data Engineering & Analytics", href: "/ninexdevOpsBrand/data-engineering-analytics" },
+                    { label: "Custom Software Development", href: "/ninexdevOpsBrand/custom-software-development" },
+                    { label: "IoT & Edge Computing", href: "/ninexdevOpsBrand/iot-edge-computing" },
+                    { label: "Networks & Digital Workspace", href: "/ninexdevOpsBrand/networks-digital-workspace" },
+                  ]}
+                />
 
-                {/* NineXConnect */}
-                <li>
-                  <span className="text-[13px] leading-[1.5] tracking-[-0.01em] text-white font-medium py-1 block">
-                    NineXConnect
-                  </span>
-                  <ul className="space-y-3 ml-3 border-l border-white/10 pl-3 mt-2 mb-2">
-                    <li>
-                      <NavLink href="/ninexconnect/crm-implementation">
-                        CRM Implementation
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink href="/ninexconnect/sales-automation">
-                        Sales Automation
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink href="/ninexconnect/customer-journey-design">
-                        Customer Journey Design
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink href="/ninexconnect/contact-center-solutions">
-                        Contact Center Solutions
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink href="/ninexconnect/whatsapp-business">
-                        WhatsApp Business
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink href="/ninexconnect/customer-data-platforms">
-                        Customer Data Platforms
-                      </NavLink>
-                    </li>
-                  </ul>
-                </li>
+                <BrandGroup
+                  name="NineXConnect"
+                  links={[
+                    { label: "CRM Implementation", href: "/ninexConnectBrand/crm-implementation" },
+                    { label: "Sales Automation", href: "/ninexConnectBrand/sales-automation" },
+                    { label: "Customer Journey Design", href: "/ninexConnectBrand/customer-journey-design" },
+                    { label: "Contact Center Solutions", href: "/ninexConnectBrand/contact-center-solutions" },
+                    { label: "Marketing Platforms", href: "/ninexConnectBrand/marketing-platforms" },
+                  ]}
+                />
 
-                {/* NineXScale */}
-                <li>
-                  <span className="text-[13px] leading-[1.5] tracking-[-0.01em] text-white font-medium py-1 block">
-                    NineXScale
-                  </span>
-                  <ul className="space-y-3 ml-3 border-l border-white/10 pl-3 mt-2 mb-2">
-                    <li>
-                      <NavLink href="/ninexscale/go-to-market-strategy">
-                        Go-To-Market Strategy
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink href="/ninexscale/market-entry-consulting">
-                        Market Entry Consulting
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink href="/ninexscale/business-expansion">
-                        Business Expansion
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink href="/ninexscale/investor-ready-decks">
-                        Investor-Ready Decks
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink href="/ninexscale/competitive-intelligence">
-                        Competitive Intelligence
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink href="/ninexscale/revenue-growth-architecture">
-                        Revenue Growth Architecture
-                      </NavLink>
-                    </li>
-                  </ul>
-                </li>
+                <BrandGroup
+                  name="NineXScale"
+                  links={[
+                    { label: "Go-To-Market Strategy", href: "/ninexscaleBrand/go-to-market-strategy" },
+                    { label: "Market Entry & Expansion", href: "/ninexscaleBrand/market-entry-expansion" },
+                    { label: "Business Expansion Planning", href: "/ninexscaleBrand/business-expansion-planning" },
+                    { label: "Investor Relations", href: "/ninexscaleBrand/investor-relations" },
+                    { label: "Competitive Intelligence", href: "/ninexscaleBrand/competitive-intelligence" },
+                    { label: "Revenue Growth Architecture", href: "/ninexscaleBrand/revenue-growth-architecture" },
+                  ]}
+                />
               </ul>
             </AccordionSection>
           </div>
-          {/* Industries */}
+
+          {/* ================= INDUSTRIES ================= */}
           <div className="lg:border-l lg:border-white/10 lg:pl-8">
             <AccordionSection title="Industries">
               <ul className="space-y-3">
-                {/* Core Industries */}
-                <li>
-                  <span className="text-[13px] leading-[1.5] tracking-[-0.01em] text-white font-medium py-1 block">
-                    Core Industries
-                  </span>
-                  <ul className="space-y-3 ml-3 border-l border-white/10 pl-3 mt-2 mb-2">
-                    <li>
-                      <NavLink href="/industries/automotive-mobility">
-                        Automotive & Mobility
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink href="/industries/manufacturing-industry-4">
-                        Manufacturing & Industry 4.0
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink href="/industries/retail-ecommerce">
-                        Retail & E-Commerce
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink href="/industries/fintech">Fintech</NavLink>
-                    </li>
-                    <li>
-                      <NavLink href="/industries/technology-saas">
-                        Technology & SaaS
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink href="/industries/ai-systems">
-                        AI Systems
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink href="/industries/healthcare">
-                        Healthcare
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink href="/industries/energy">Energy</NavLink>
-                    </li>
-                  </ul>
-                </li>
+                <BrandGroup
+                  name="Core Industries"
+                  links={[
+                    { label: "Automotive & Mobility", href: "/industries/automotive-mobility" },
+                    { label: "Manufacturing & Industry 4.0", href: "/industries/manufacturing-industry-4" },
+                    { label: "Retail & E-Commerce", href: "/industries/retail-ecommerce" },
+                    { label: "Fintech", href: "/industries/fintech" },
+                    { label: "Technology & SaaS", href: "/industries/technology-saas" },
+                    { label: "AI Systems", href: "/industries/ai-systems" },
+                    { label: "Healthcare", href: "/industries/healthcare" },
+                    { label: "Energy", href: "/industries/energy" },
+                  ]}
+                />
 
-                {/* Extended Industries */}
-                <li>
-                  <span className="text-[13px] leading-[1.5] tracking-[-0.01em] text-white font-medium py-1 block">
-                    Extended Industries
-                  </span>
-                  <ul className="space-y-3 ml-3 border-l border-white/10 pl-3 mt-2 mb-2">
-                    <li>
-                      <NavLink href="/industries/solar-clean-energy">
-                        Solar & Clean Energy
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink href="/industries/aerospace-defense">
-                        Aerospace & Defense
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink href="/industries/agritech">AgriTech</NavLink>
-                    </li>
-                    <li>
-                      <NavLink href="/industries/hospitality">
-                        Hospitality
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink href="/industries/edtech">EdTech</NavLink>
-                    </li>
-                    <li>
-                      <NavLink href="/industries/media-entertainment">
-                        Media & Entertainment
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink href="/industries/insurance">Insurance</NavLink>
-                    </li>
-                    <li>
-                      <NavLink href="/industries/government">
-                        Government
-                      </NavLink>
-                    </li>
-                  </ul>
-                </li>
+                <BrandGroup
+                  name="Extended Industries"
+                  links={[
+                    { label: "Solar & Clean Energy", href: "/industries/solar-clean-energy" },
+                    { label: "Aerospace & Defense", href: "/industries/aerospace-defense" },
+                    { label: "AgriTech", href: "/industries/agritech" },
+                    { label: "Hospitality", href: "/industries/hospitality" },
+                    { label: "EdTech", href: "/industries/edtech" },
+                    { label: "Media & Entertainment", href: "/industries/media-entertainment" },
+                    { label: "Insurance", href: "/industries/insurance" },
+                    { label: "Government", href: "/industries/government" },
+                  ]}
+                />
 
-                {/* More Industries */}
-                <li>
-                  <span className="text-[13px] leading-[1.5] tracking-[-0.01em] text-white font-medium py-1 block">
-                    More Industries
-                  </span>
-                  <ul className="space-y-3 ml-3 border-l border-white/10 pl-3 mt-2 mb-2">
-                    <li>
-                      <NavLink href="/industries/life-science">
-                        Life Science
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink href="/industries/climate-tech">
-                        ClimateTech
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink href="/industries/logistics">Logistics</NavLink>
-                    </li>
-                    <li>
-                      <NavLink href="/industries/real-estate">
-                        Real Estate
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink href="/industries/data-centers">
-                        Data Centers
-                      </NavLink>
-                    </li>
-                  </ul>
-                </li>
+                <BrandGroup
+                  name="More Industries"
+                  links={[
+                    { label: "Life Science", href: "/industries/life-science" },
+                    { label: "ClimateTech", href: "/industries/climate-tech" },
+                    { label: "Logistics", href: "/industries/logistics" },
+                    { label: "Real Estate", href: "/industries/real-estate" },
+                    { label: "Data Centers", href: "/industries/data-centers" },
+                  ]}
+                />
               </ul>
             </AccordionSection>
           </div>
 
-          {/* Ecosystem / Who We Are AND Resources */}
+          {/* ================= WHO WE ARE ================= */}
           <div className="flex flex-col space-y-8 lg:border-l lg:border-white/10 lg:pl-8">
             <AccordionSection title="Who We Are">
               <ul className="space-y-3">
                 <li>
-                  <NavLink href="#">About Us</NavLink>
+                  <NavLink href="/about">About NineX Group</NavLink>
                 </li>
                 <li>
-                  <NavLink href="#">Analyst Recognitions</NavLink>
+                  <NavLink href="/story">Our Story & Mission</NavLink>
                 </li>
                 <li>
-                  <NavLink href="#">Annual Report 2025</NavLink>
+                  <NavLink href="/leadership">Leadership Team</NavLink>
                 </li>
                 <li>
-                  <NavLink href="#">Awards and Recognition</NavLink>
+                  <NavLink href="/values">Our Values & Culture</NavLink>
                 </li>
                 <li>
-                  <NavLink href="#">
-                    Code of Business Ethics and Conduct
-                  </NavLink>
+                  <NavLink href="/partners">Partner Ecosystem</NavLink>
                 </li>
                 <li>
-                  <NavLink href="#">Corporate Social Responsibility</NavLink>
-                </li>
-                <li>
-                  <NavLink href="#">Diversity, Equity and Inclusion</NavLink>
-                </li>
-                <li>
-                  <NavLink href="#">Global Presence</NavLink>
-                </li>
-                <li>
-                  <NavLink href="#">Investor Relations</NavLink>
-                </li>
-                <li>
-                  <NavLink href="#">Leadership</NavLink>
-                </li>
-                <li>
-                  <NavLink href="#">Newsroom</NavLink>
-                </li>
-                <li>
-                  <NavLink href="#">Privacy Trust Center</NavLink>
-                </li>
-                <li>
-                  <NavLink href="#">Strategic Alliances</NavLink>
-                </li>
-                <li>
-                  <NavLink href="#">Sustainability</NavLink>
+                  <NavLink href="/csr">CSR & Sustainability</NavLink>
                 </li>
               </ul>
             </AccordionSection>
           </div>
 
-          {/* Careers & Global Presence */}
+          {/* ================= CAREERS + INSIGHTS ================= */}
           <div className="flex flex-col space-y-8 lg:border-l lg:border-white/10 lg:pl-8">
             <AccordionSection title="Careers">
               <ul className="space-y-3">
                 <li>
-                  <NavLink href="#">Careers Overview</NavLink>
+                  <NavLink href="/careers/jobs">Open Positions</NavLink>
                 </li>
                 <li>
-                  <NavLink href="#">Meet our people</NavLink>
+                  <NavLink href="/careers/life">Life at NineX</NavLink>
                 </li>
                 <li>
-                  {/* <span className="text-[13px] leading-[1.5] tracking-[-0.01em] text-white font-medium py-1 block">
-                    Explore job opportunities
-                  </span>
-                  <ul className="space-y-3 ml-3 border-l border-white/10 pl-3 mt-2 mb-2">
-                    <li>
-                      <DropdownNavItem title="Americas">
-                        <li>
-                          <NavLink href="#">United States</NavLink>
-                        </li>
-                        <li>
-                          <NavLink href="#">Canada</NavLink>
-                        </li>
-                        <li>
-                          <NavLink href="#">Brazil</NavLink>
-                        </li>
-                      </DropdownNavItem>
-                    </li>
-                    <li>
-                      <DropdownNavItem title="Asia Pacific">
-                        <li>
-                          <NavLink href="#">Australia</NavLink>
-                        </li>
-                        <li>
-                          <NavLink href="#">Japan</NavLink>
-                        </li>
-                        <li>
-                          <NavLink href="#">Singapore</NavLink>
-                        </li>
-                      </DropdownNavItem>
-                    </li>
-                    <li>
-                      <DropdownNavItem title="Europe and Africa">
-                        <li>
-                          <NavLink href="#">United Kingdom</NavLink>
-                        </li>
-                        <li>
-                          <NavLink href="#">Germany</NavLink>
-                        </li>
-                        <li>
-                          <NavLink href="#">South Africa</NavLink>
-                        </li>
-                      </DropdownNavItem>
-                    </li>
-                    <li>
-                      <DropdownNavItem title="India">
-                        <li>
-                          <NavLink href="#">Bengaluru</NavLink>
-                        </li>
-                        <li>
-                          <NavLink href="#">Mumbai</NavLink>
-                        </li>
-                        <li>
-                          <NavLink href="#">New Delhi</NavLink>
-                        </li>
-                      </DropdownNavItem>
-                    </li>
-                  </ul> */}
-                </li>
-              </ul>
-            </AccordionSection>
-            <AccordionSection title="Resources">
-              <ul className="space-y-3">
-                <li>
-                  <NavLink href="#">Trends and Insights</NavLink>
+                  <NavLink href="/careers/culture">Culture & Values</NavLink>
                 </li>
                 <li>
-                  <NavLink href="#">Case Studies</NavLink>
+                  <NavLink href="/careers/benefits">Benefits & Perks</NavLink>
                 </li>
                 <li>
-                  <NavLink href="#">Events and Webinars</NavLink>
+                  <NavLink href="/careers/leadership">Leadership Programs</NavLink>
+                </li>
+                <li>
+                  <NavLink href="/careers/campus">Campus / Freshers</NavLink>
                 </li>
               </ul>
             </AccordionSection>
 
-            {/* <AccordionSection title="Global Presence">
+            <AccordionSection title="Insights">
               <ul className="space-y-3">
                 <li>
-                  <DropdownNavItem title="Americas">
-                    <li>
-                      <NavLink href="#">North America</NavLink>
-                    </li>
-                    <li>
-                      <NavLink href="#">South America</NavLink>
-                    </li>
-                  </DropdownNavItem>
+                  <NavLink href="/insights/research">Research Reports</NavLink>
                 </li>
                 <li>
-                  <DropdownNavItem title="EMEA">
-                    <li>
-                      <NavLink href="#">Europe</NavLink>
-                    </li>
-                    <li>
-                      <NavLink href="#">Middle East</NavLink>
-                    </li>
-                    <li>
-                      <NavLink href="#">Africa</NavLink>
-                    </li>
-                  </DropdownNavItem>
+                  <NavLink href="/insights/industry">Industry Reports</NavLink>
                 </li>
                 <li>
-                  <DropdownNavItem title="APAC">
-                    <li>
-                      <NavLink href="#">Asia</NavLink>
-                    </li>
-                    <li>
-                      <NavLink href="#">Pacific</NavLink>
-                    </li>
-                  </DropdownNavItem>
+                  <NavLink href="/insights/case-studies">Case Studies</NavLink>
+                </li>
+                <li>
+                  <NavLink href="/blogs">Blog & Articles</NavLink>
+                </li>
+                <li>
+                  <NavLink href="/insights/whitepapers">Whitepapers</NavLink>
+                </li>
+                <li>
+                  <NavLink href="/insights/videos">Videos & Webinars</NavLink>
+                </li>
+                <li>
+                  <NavLink href="/insights/newsletter">Newsletter</NavLink>
                 </li>
               </ul>
-            </AccordionSection> */}
+            </AccordionSection>
           </div>
         </div>
 
         {/* Bottom Bar */}
         <div className="mt-12 pt-6 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-6">
-          {/* NinexGroup Logo (replaced Trust badge) */}
+          {/* NinexGroup Logo */}
           <div className="flex items-center">
             <Image
               src="https://api.builder.io/api/v1/image/assets/TEMP/e17d68d8e248bb0b5749fd61ee6f92a4054967ff?width=490"
@@ -654,27 +326,8 @@ export default function Footer() {
           <div className="flex items-center space-x-3">
             {[
               {
-                name: "Facebook",
-                viewBox: "0 0 24 24",
-                icon: (
-                  <path
-                    fill="currentColor"
-                    d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
-                  />
-                ),
-              },
-              {
-                name: "X",
-                viewBox: "0 0 24 24",
-                icon: (
-                  <path
-                    fill="currentColor"
-                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
-                  />
-                ),
-              },
-              {
                 name: "LinkedIn",
+                href: "https://www.linkedin.com/company/ninexgroup/",
                 viewBox: "0 0 24 24",
                 icon: (
                   <path
@@ -685,6 +338,7 @@ export default function Footer() {
               },
               {
                 name: "Instagram",
+                href: "https://www.instagram.com/ninexgroup_global/",
                 viewBox: "0 0 24 24",
                 icon: (
                   <path
@@ -693,20 +347,13 @@ export default function Footer() {
                   />
                 ),
               },
-              {
-                name: "YouTube",
-                viewBox: "0 0 24 24",
-                icon: (
-                  <path
-                    fill="currentColor"
-                    d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
-                  />
-                ),
-              },
             ].map((social) => (
               <a
                 key={social.name}
-                href="#"
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={social.name}
                 className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:text-white hover:border-white/40 transition-colors"
               >
                 <svg className="w-4 h-4" viewBox={social.viewBox}>
