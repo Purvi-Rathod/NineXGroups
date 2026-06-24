@@ -156,9 +156,16 @@ const WhatWeDo: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [activeData, setActiveData] = useState<IndustryCard[]>(ALL_DATA);
 
-  // ── Touch refs ──
-  const touchStartX = useRef<number | null>(null);
+  // ── Drag state ──
+  const [isDragging, setIsDragging] = useState(false);
+  const [dragOffset, setDragOffset] = useState(0);
+  const dragStartX = useRef<number | null>(null);
+  const dragOffsetRef = useRef(0);
   const touchStartY = useRef<number | null>(null);
+
+  // ── Responsive step (real card width + gap, measured from DOM) ──
+  const trackRef = useRef<HTMLDivElement>(null);
+  const [step, setStep] = useState(CARD_WIDTH + GAP);
 
   // Filter data when filter changes
   useEffect(() => {
@@ -169,15 +176,78 @@ const WhatWeDo: React.FC = () => {
     setCurrentIndex(0);
   }, [activeFilter]);
 
+  // Measure real card width per breakpoint so snapping stays accurate on every screen
+  useEffect(() => {
+    const measure = () => {
+      const track = trackRef.current;
+      if (!track) return;
+      const first = track.querySelector('.card') as HTMLElement | null;
+      if (first) setStep(first.offsetWidth + GAP);
+    };
+    measure();
+    window.addEventListener('resize', measure);
+    return () => window.removeEventListener('resize', measure);
+  }, [activeData]);
+
   const maxIndex = Math.max(0, activeData.length - VISIBLE_CARDS);
-  const offset = currentIndex * (CARD_WIDTH + GAP);
+  const offset = currentIndex * step;
+
+  // Loop helper — wraps around so last → first and first → last
+  const wrapIndex = (index: number) => {
+    const count = maxIndex + 1;
+    return ((index % count) + count) % count;
+  };
 
   const goToSlide = (index: number) => {
-    setCurrentIndex(Math.max(0, Math.min(index, maxIndex)));
+    setCurrentIndex(wrapIndex(index));
   };
 
   const handlePrev = () => goToSlide(currentIndex - 1);
   const handleNext = () => goToSlide(currentIndex + 1);
+
+  // ── Shared drag logic (works for both mouse + touch) ──
+  const beginDrag = (x: number) => {
+    dragStartX.current = x;
+    dragOffsetRef.current = 0;
+    setDragOffset(0);
+    setIsDragging(true);
+  };
+
+  const updateDrag = (x: number) => {
+    if (dragStartX.current === null) return;
+    const dx = x - dragStartX.current;
+    dragOffsetRef.current = dx;
+    setDragOffset(dx);
+  };
+
+  const finishDrag = () => {
+    if (dragStartX.current === null) {
+      setIsDragging(false);
+      return;
+    }
+    const moved = Math.round(dragOffsetRef.current / step);
+    if (moved !== 0) {
+      setCurrentIndex(prev => wrapIndex(prev - moved));
+    }
+    setIsDragging(false);
+    setDragOffset(0);
+    dragOffsetRef.current = 0;
+    dragStartX.current = null;
+  };
+
+  // Mouse drag — track pointer on window so it keeps following even outside the card
+  useEffect(() => {
+    if (!isDragging) return;
+    const onMove = (e: MouseEvent) => updateDrag(e.clientX);
+    const onUp = () => finishDrag();
+    window.addEventListener('mousemove', onMove);
+    window.addEventListener('mouseup', onUp);
+    return () => {
+      window.removeEventListener('mousemove', onMove);
+      window.removeEventListener('mouseup', onUp);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isDragging, step, maxIndex]);
 
   return (
     <>
@@ -263,12 +333,19 @@ const WhatWeDo: React.FC = () => {
           overflow: hidden;
           position: relative;
           touch-action: pan-y;
+          cursor: grab;
+          user-select: none;
+          -webkit-user-select: none;
+        }
+
+        .wwd__outer.is-dragging {
+          cursor: grabbing;
         }
 
         .wwd__track {
           display: flex;
           gap: 20px;
-          transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+          transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
           will-change: transform;
         }
 
@@ -576,33 +653,38 @@ const WhatWeDo: React.FC = () => {
 
         {/* Carousel */}
         <div
-          className="wwd__outer"
+          className={`wwd__outer${isDragging ? ' is-dragging' : ''}`}
+          onMouseDown={(e) => {
+            e.preventDefault();
+            beginDrag(e.clientX);
+          }}
           onTouchStart={(e) => {
-            touchStartX.current = e.touches[0].clientX;
             touchStartY.current = e.touches[0].clientY;
+            beginDrag(e.touches[0].clientX);
           }}
           onTouchMove={(e) => {
-            if (touchStartX.current === null || touchStartY.current === null) return;
-            const dx = touchStartX.current - e.touches[0].clientX;
+            if (dragStartX.current === null || touchStartY.current === null) return;
+            const dx = e.touches[0].clientX - dragStartX.current;
             const dy = Math.abs(e.touches[0].clientY - touchStartY.current);
-            // only prevent page scroll if predominantly horizontal swipe
-            if (Math.abs(dx) > dy) e.preventDefault();
-          }}
-          onTouchEnd={(e) => {
-            if (touchStartX.current === null || touchStartY.current === null) return;
-            const dx = touchStartX.current - e.changedTouches[0].clientX;
-            const dy = Math.abs(e.changedTouches[0].clientY - touchStartY.current);
-            // fire only if horizontal swipe > 40px and more horizontal than vertical
-            if (Math.abs(dx) > 40 && Math.abs(dx) > dy) {
-              dx > 0 ? handleNext() : handlePrev();
+            // only hijack as horizontal drag when it's predominantly horizontal,
+            // otherwise let the page scroll vertically
+            if (Math.abs(dx) > dy) {
+              e.preventDefault();
+              updateDrag(e.touches[0].clientX);
             }
-            touchStartX.current = null;
+          }}
+          onTouchEnd={() => {
             touchStartY.current = null;
+            finishDrag();
           }}
         >
-          <div 
-            className="wwd__track" 
-            style={{ transform: `translateX(-${offset}px)` }}
+          <div
+            ref={trackRef}
+            className="wwd__track"
+            style={{
+              transform: `translateX(${-offset + dragOffset}px)`,
+              transition: isDragging ? 'none' : undefined,
+            }}
           >
             {activeData.map((item, idx) => (
               <div key={idx} className="card">
@@ -613,7 +695,13 @@ const WhatWeDo: React.FC = () => {
                   </span>
                 </div>
                 <div className="card__ring">
-                  <img src={item.img} alt={item.title} loading="lazy" />
+                  <img
+                    src={item.img}
+                    alt={item.title}
+                    loading="lazy"
+                    draggable={false}
+                    onDragStart={(e) => e.preventDefault()}
+                  />
                 </div>
                 <div className="card__cagr">
                   {item.cagr && <span>{item.cagr}</span>}
@@ -649,7 +737,6 @@ const WhatWeDo: React.FC = () => {
           <div className="wwd__arrows">
             <button 
               onClick={handlePrev} 
-              disabled={currentIndex === 0}
               aria-label="Previous slide"
             >
               <svg viewBox="0 0 24 24">
@@ -658,7 +745,6 @@ const WhatWeDo: React.FC = () => {
             </button>
             <button 
               onClick={handleNext} 
-              disabled={currentIndex >= maxIndex}
               aria-label="Next slide"
             >
               <svg viewBox="0 0 24 24">

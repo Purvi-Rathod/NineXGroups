@@ -133,7 +133,7 @@ export default function Page() {
           },
         ]}
       /> */}
-      <Contact />
+      {/* <Contact /> */}
     </>
   );
 }

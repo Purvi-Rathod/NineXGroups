@@ -11,6 +11,7 @@ import FounderNoteSection from "@/components/sections/ninexfoldSections/FounderN
 import CareerSection from "@/components/sections/ninexfoldSections/CareerSection";
 import AISection from "@/components/sections/ninexfoldSections/AISection";
 import BrandsShowcase from "@/components/sections/ninexfoldSections/BrandsShowcase";
+import NineXKiwiHomepageSection from "@/components/sections/ninexfoldSections/Ninexkiwihomepagesection";
 
 
 
@@ -23,7 +24,8 @@ export default function NinexFoldPage() {
             <BrandsShowcase />
             <FounderNoteSection />
             <WhatWeDoSection />
-            <AISection />
+            {/* <AISection /> */}
+            <NineXKiwiHomepageSection />
             {/* <PerformanceDrivenSection /> */}
             {/* <WorkWithUsSection /> */}
             {/* <FutureReadySection />  */}
